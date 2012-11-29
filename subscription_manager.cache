@@ -20,7 +20,7 @@ CLASSES
      |  
      |  Inherited methods
      |      subscription_manager.certlib.DataLib.__init__(self, 
-     |           lock=<subscription_manager.certlib.ActionLock instance at 0x18b3f80>, 
+     |           lock=<subscription_manager.certlib.ActionLock instance at 0x10f8200>, 
      |           uep=None)
      |      subscription_manager.certlib.DataLib.update(self)
     
@@ -33,7 +33,7 @@ CLASSES
      |  
      |  Inherited methods
      |      subscription_manager.certlib.DataLib.__init__(self, 
-     |           lock=<subscription_manager.certlib.ActionLock instance at 0x18b3f80>, 
+     |           lock=<subscription_manager.certlib.ActionLock instance at 0x10f8200>, 
      |           uep=None)
      |      subscription_manager.certlib.DataLib.update(self)
     
@@ -124,7 +124,7 @@ CLASSES
      |      Load the data in whatever format the sub-class uses from an 
      |      already opened file descriptor.
      |  
-     |  update_check(self, uep, consumer_uuid)
+     |  update_check(self, uep, consumer_uuid, force=False)
      |      Check if packages have changed, and push an update if so.
      |  
      |  has_changed(self)

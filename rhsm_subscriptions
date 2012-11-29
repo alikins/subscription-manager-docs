@@ -40,9 +40,6 @@ CLASSES
      |  _show_buttons(self)
      |      Override the parent class behaviour to not display 
      |      register/unregister buttons during firstboot
-     |      
-     |      Hide the help button as well, and disable it so an accidental 
-     |      F1 won't click it.
      |  
      |  _show_redemption_buttons(self)
      |      Override the parent class to first put the button where the 

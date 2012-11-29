@@ -778,7 +778,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (43926304)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
     
     class MultiEntitlementColumn(ToggleTextColumn)
      |  
@@ -922,7 +922,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (43926304)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
     
     class MachineTypeColumn(ToggleTextColumn)
      |  
@@ -1069,7 +1069,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (43926304)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
     
     class QuantitySelectionColumn(gtk.TreeViewColumn)
      |  
@@ -1079,6 +1079,12 @@ CLASSES
      |           editable=True)
      |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
      |      signature
+     |  
+     |  _setup_editor(self, cellrenderer, editable, path)
+     |  
+     |  _text_inserted_in_spinner(self, widget, text, length, position)
+     |  
+     |  _filter_spinner_value(self, triggering_event, editable, new_value)
      |  
      |  get_column_legend_text(self)
      |  
@@ -1212,7 +1218,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (43926304)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
 
 FUNCTIONS
     
