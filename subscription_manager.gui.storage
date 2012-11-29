@@ -195,7 +195,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.ListStore.__gtype__ = <GType GtkListStore (40295872)>
+     |      gtk.ListStore.__gtype__ = <GType GtkListStore (18255104)>
     
     class MappedTreeStore(MappedStore, gtk.TreeStore)
      |  
@@ -352,7 +352,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeStore.__gtype__ = <GType GtkTreeStore (40336192)>
+     |      gtk.TreeStore.__gtype__ = <GType GtkTreeStore (18295424)>
 
 VARIABLES
     
