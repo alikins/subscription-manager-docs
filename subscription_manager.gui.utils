@@ -2,10 +2,16 @@ MODULE NAME
     subscription_manager.gui.utils
 
 
-FUNCTIONS
+CLASSES
     
-    _(x)
-        rhsm
+    class GladeWrapper(gtk.glade.XML)
+     |  
+     |  
+     |  __init__(self, filename)
+     |  
+     |  get_widget(self, widget_name)
+
+FUNCTIONS
     
     handle_gui_exception(e, msg, parent, formatMsg=True, logMsg=None)
         Handles an exception for the gui by logging the stack trace and 
@@ -49,6 +55,8 @@ FUNCTIONS
 
 VARIABLES
     
+    _ = lambda x:
+    
     log = logging.getLogger('rhsm-app.'+ __name__)
     
     MIN_GTK_MAJOR = 2
@@ -58,5 +66,3 @@ VARIABLES
     MIN_GTK_MICRO = 0
     
     EVEN_ROW_COLOR = '#eeeeee'
-    
-    __package__ = 'subscription_manager.gui'

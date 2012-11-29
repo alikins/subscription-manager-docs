@@ -15,6 +15,14 @@ CLASSES
      |  
      |  get_stacking_id(self)
      |  
+     |  get_service_level(self)
+     |  
+     |  get_service_type(self)
+     |  
+     |  get_product_attributes(self, *attribute_names)
+     |  
+     |  _get_attribute_value(self, attr_list_name, attr_name)
+     |  
      |  Inherited methods
      |      object.__delattr__(...)
      |      object.__format__(...)

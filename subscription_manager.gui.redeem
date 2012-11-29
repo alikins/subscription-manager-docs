@@ -10,9 +10,6 @@ CLASSES
      |  
      |  
      |  __init__(self, backend, consumer)
-     |      Create a new widget backed by the give glade file (assumed to 
-     |      be in data/). The initial_widget_names is a list of widgets to 
-     |      pull in as instance variables.
      |  
      |  _redeem(self, button)
      |  
@@ -25,24 +22,9 @@ CLASSES
      |  set_parent_window(self, window)
      |  
      |  _hide_callback(self, button, event=None)
-     |  
-     |  Inherited methods
-     |      object.__delattr__(...)
-     |      object.__format__(...)
-     |      object.__getattribute__(...)
-     |      object.__hash__(x)
-     |      object.__new__(T, S, *...)
-     |      object.__reduce__(...)
-     |      object.__reduce_ex__(...)
-     |      object.__repr__(x)
-     |      object.__setattr__(...)
-     |      object.__sizeof__()
-     |      object.__str__(x)
-     |      object.__subclasshook__(...)
-     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
 
 VARIABLES
     
-    log = logging.getLogger('rhsm-app.'+ __name__)
+    _ = gettext.gettext
     
-    __package__ = 'subscription_manager.gui'
+    log = logging.getLogger('rhsm-app.'+ __name__)

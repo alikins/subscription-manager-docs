@@ -603,7 +603,9 @@ CLASSES
      |  _do_command(self)
      |      Executes the command.
      |  
-     |  print_consumed(self, ent_dir=None)
+     |  _filter_pool_json_by_service_level(self, pools, service_level)
+     |  
+     |  print_consumed(self, ent_dir=None, service_level=None)
      |  
      |  _format_name(self, name, indent, max_length)
      |      Formats a potentially long name for multi-line display, giving 

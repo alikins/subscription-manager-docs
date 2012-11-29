@@ -84,14 +84,19 @@ CLASSES
      |  
      |  
      |  __init__(self, backend=None, consumer=None, facts=None, 
-     |           ent_dir=None, prod_dir=None)
+     |           ent_dir=None, prod_dir=None, 
+     |           auto_launch_registration=False)
      |      Create a new widget backed by the give glade file (assumed to 
      |      be in data/). The initial_widget_names is a list of widgets to 
      |      pull in as instance variables.
      |  
      |  registered(self)
      |  
-     |  registration_changed(self)
+     |  _on_sla_back_button_press(self)
+     |  
+     |  _on_sla_cancel_button_press(self)
+     |  
+     |  registration_changed(self, skip_auto_bind)
      |  
      |  refresh(self)
      |      Refresh the UI.
@@ -107,7 +112,11 @@ CLASSES
      |  
      |  _register_button_clicked(self, widget)
      |  
+     |  _preferences_button_clicked(self, widget)
+     |  
      |  _on_unregister_prompt_response(self, dialog, response)
+     |  
+     |  _perform_unregister(self)
      |  
      |  _unregister_button_clicked(self, widget)
      |  

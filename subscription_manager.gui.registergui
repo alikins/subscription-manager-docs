@@ -4,68 +4,6 @@ MODULE NAME
 
 CLASSES
     
-    class GladeWrapper(gtk.glade.XML)
-     |  
-     |  
-     |  __init__(self, filename)
-     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
-     |      signature
-     |  
-     |  get_widget(self, widget_name)
-     |  
-     |  Inherited methods
-     |      ??.GObject.__cmp__(x, y)
-     |      ??.GObject.__copy__(...)
-     |      ??.GObject.__deepcopy__(...)
-     |      ??.GObject.__delattr__(...)
-     |      object.__format__(...)
-     |      ??.GObject.__gdoc__(...)
-     |      object.__getattribute__(...)
-     |      ??.GObject.__gobject_init__(...)
-     |      ??.GObject.__hash__(x)
-     |      ??.GObject.__new__(T, S, *...)
-     |      object.__reduce__(...)
-     |      object.__reduce_ex__(...)
-     |      ??.GObject.__repr__(x)
-     |      ??.GObject.__setattr__(...)
-     |      object.__sizeof__()
-     |      object.__str__(x)
-     |      object.__subclasshook__(...)
-     |      ??.GObject.chain(...)
-     |      ??.GObject.connect(...)
-     |      ??.GObject.connect_after(...)
-     |      ??.GObject.connect_object(...)
-     |      ??.GObject.connect_object_after(...)
-     |      ??.GObject.disconnect(...)
-     |      ??.GObject.disconnect_by_func(...)
-     |      ??.GObject.emit(...)
-     |      ??.GObject.emit_stop_by_name(...)
-     |      ??.GObject.freeze_notify(...)
-     |      ??.GObject.get_data(...)
-     |      ??.GObject.get_properties(...)
-     |      ??.GObject.get_property(...)
-     |      gtk.glade.XML.get_widget_prefix(...)
-     |      ??.GObject.handler_block(...)
-     |      ??.GObject.handler_block_by_func(...)
-     |      ??.GObject.handler_disconnect(...)
-     |      ??.GObject.handler_is_connected(...)
-     |      ??.GObject.handler_unblock(...)
-     |      ??.GObject.handler_unblock_by_func(...)
-     |      ??.GObject.notify(...)
-     |      ??.GObject.props(...)
-     |      gtk.glade.XML.relative_file(...)
-     |      ??.GObject.set_data(...)
-     |      ??.GObject.set_properties(...)
-     |      ??.GObject.set_property(...)
-     |      gtk.glade.XML.signal_autoconnect(...)
-     |      gtk.glade.XML.signal_connect(...)
-     |      ??.GObject.stop_emission(...)
-     |      ??.GObject.thaw_notify(...)
-     |      ??.GObject.weak_ref(...)
-     |  
-     |  Inherited class variables
-     |      gtk.glade.XML.__gtype__ = <GType GladeXML (29384528)>
-    
     class RegisterScreen
      |  Registration Widget Screen
      |  
@@ -99,17 +37,13 @@ CLASSES
      |  
      |  _on_registration_finished_cb(self, new_account, error=None)
      |  
-     |  _on_bind_by_products_cb(self, error=None)
-     |  
-     |  _on_fetch_certificates_cb(self, error=None)
-     |  
      |  _finish_registration(self, failed=False)
      |  
      |  emit_consumer_signal(self)
      |  
      |  close_window(self)
      |  
-     |  auto_subscribe(self)
+     |  skip_auto_subscribe(self)
      |  
      |  validate_consumername(self, consumername)
      |  
@@ -205,6 +139,6 @@ VARIABLES
     
     ENVIRONMENT_SELECT_PAGE = 3
     
-    registration_xml = <GladeWrapper object at 0x1cadbe0 (PyGladeXML at ...
+    registration_xml = <GladeWrapper object at 0x2b21be0 (PyGladeXML at ...
     
     __package__ = 'subscription_manager.gui'

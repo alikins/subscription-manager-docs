@@ -8,8 +8,6 @@ CLASSES
      |  
      |  
      |  __init__(self, backend, consumer, facts, parent_win)
-     |      Creates a new tab widget, given the specified glade file and a 
-     |      list of widget names to extract to instance variables.
      |  
      |  get_store(self)
      |  
@@ -75,29 +73,9 @@ CLASSES
      |      Shows details for the current selected pool.
      |  
      |  on_no_selection(self)
-     |  
-     |  Inherited methods
-     |      object.__delattr__(...)
-     |      object.__format__(...)
-     |      object.__getattribute__(...)
-     |      object.__hash__(x)
-     |      object.__new__(T, S, *...)
-     |      object.__reduce__(...)
-     |      object.__reduce_ex__(...)
-     |      object.__repr__(x)
-     |      object.__setattr__(...)
-     |      object.__sizeof__()
-     |      object.__str__(x)
-     |      object.__subclasshook__(...)
-     |      subscription_manager.gui.widgets.SubscriptionManagerTab._set_next_update(self)
-     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_date_column(self, name, store_key, expand=False)
-     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_text_column(self, name, store_key, expand=False, markup=False)
-     |      subscription_manager.gui.widgets.SubscriptionManagerTab.get_content(self)
-     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
-     |      subscription_manager.gui.widgets.SubscriptionManagerTab.refresh(self)
 
 VARIABLES
     
-    log = logging.getLogger('rhsm-app.'+ __name__)
+    _ = gettext.gettext
     
-    __package__ = 'subscription_manager.gui'
+    log = logging.getLogger('rhsm-app.'+ __name__)

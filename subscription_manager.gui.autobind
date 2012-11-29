@@ -1,0 +1,299 @@
+MODULE NAME
+    subscription_manager.gui.autobind
+
+
+CLASSES
+    
+    class DryRunResult(object)
+     |  Encapsulates a dry-run autobind result from the server.
+     |  
+     |  
+     |  __init__(self, service_level, server_json, cert_sorter)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  covers_required_products(self)
+     |      Return True if this dry-run result would cover all installed 
+     |      products which are not covered by a valid entitlement.
+     |      
+     |      NOTE: we do not require full stacking compliance here. The 
+     |      server will return the best match it can find, but that may 
+     |      still leave you only partially entitled. We will still consider
+     |      this situation a valid SLA to use, the key point being you have
+     |      access to the content you need.
+     |  
+     |  get_pool_quantities(self)
+     |      Returns a list of tuples, each of which is a pool ID and a 
+     |      quantity to consume. Used when we actually decide to bind to 
+     |      this pool.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class ServiceLevelNotSupportedException(exceptions.Exception)
+     |  Exception for AutobindController.load. The remote candlepin doesn't
+     |  support service levels.
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__init__(...)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      exceptions.BaseException.__str__(x)
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
+    class AllProductsCoveredException(exceptions.Exception)
+     |  Exception for AutobindController.load. The system doesn't have any 
+     |  products that are in need of entitlements.
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__init__(...)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      exceptions.BaseException.__str__(x)
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
+    class AutobindController(object)
+     |  Class to hold non gui related logic and data for sla 
+     |  selection/autobind, so we can share this between firstboot and the 
+     |  regular gui.
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  load(self)
+     |  
+     |  _find_suitable_service_levels(self)
+     |  
+     |  can_add_more_subs(self)
+     |      Check if a system that already has a selected sla can get more 
+     |      entitlements at their sla level
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class AutobindWizardScreen(object)
+     |  An object representing a screen that can be displayed by the 
+     |  AutobindWizard. Its primary purpose is to define an interface to 
+     |  the wizard object itself.
+     |  
+     |  
+     |  __init__(self, controller, parent_window)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  get_title(self)
+     |      Gets the title for this screen.
+     |  
+     |  get_forward_button_label(self)
+     |      Gets the forward button label for this screen (so you can set 
+     |      Subscribe instead of Forward)
+     |      
+     |      Return None if you want to use Forward
+     |  
+     |  get_main_widget(self)
+     |      Returns the widget that contains the main content of the 
+     |      screen. Since we use glade to design our screens, we create our
+     |      screen content inside a parent window object, and return the 
+     |      first child.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class AutobindWizard(subscription_manager.gui.widgets.GladeWidget)
+     |  Autobind Wizard: Manages screenflow used in several places in the 
+     |  UI.
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts, parent_window, 
+     |           initial_screen_back_callback=None, cancel_callback=None)
+     |      Create the Autobind wizard.
+     |      
+     |      backend - A managergui.Backend object. consumer - A 
+     |      managergui.Consumer object.
+     |  
+     |  _cancel(self, button)
+     |  
+     |  _back(self, button)
+     |  
+     |  _forward(self, button)
+     |  
+     |  show(self)
+     |  
+     |  _setup_screens(self)
+     |  
+     |  destroy(self)
+     |  
+     |  _load_initial_screen(self)
+     |  
+     |  show_confirm_subs(self, service_level, initial=False)
+     |  
+     |  show_select_sla(self, initial=False)
+     |  
+     |  _show_screen(self, screen_idx, initial)
+     |  
+     |  _toggle_back_button(self, is_initial)
+     |  
+     |  previous_screen(self)
+    
+    class ConfirmSubscriptionsScreen(AutobindWizardScreen, subscription_manager.gui.widgets.GladeWidget)
+     |  Confirm Subscriptions GUI Window
+     |  
+     |  
+     |  __init__(self, controller, parent_window)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  forward(self)
+     |      Subscribe to the selected pools. returns a list of granted 
+     |      entitlement ids.
+     |  
+     |  get_title(self)
+     |      Gets the title for this screen.
+     |  
+     |  get_forward_button_label(self)
+     |      Gets the forward button label for this screen (so you can set 
+     |      Subscribe instead of Forward)
+     |      
+     |      Return None if you want to use Forward
+     |  
+     |  get_main_widget(self)
+     |      Returns the main widget to be shown in a wizard that is using 
+     |      this screen.
+     |  
+     |  load_data(self, dry_run_result)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class SelectSLAScreen(AutobindWizardScreen, subscription_manager.gui.widgets.GladeWidget)
+     |  An autobind wizard screen that displays the  available SLAs that 
+     |  are provided by the installed products.
+     |  
+     |  
+     |  __init__(self, controller, parent_window)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  get_title(self)
+     |      Gets the title for this screen.
+     |  
+     |  get_forward_button_label(self)
+     |      Gets the forward button label for this screen (so you can set 
+     |      Subscribe instead of Forward)
+     |      
+     |      Return None if you want to use Forward
+     |  
+     |  get_main_widget(self)
+     |      Returns the content widget for this screen.
+     |  
+     |  load_data(self, unentitled_prod_certs, sla_data_map)
+     |  
+     |  forward(self)
+     |  
+     |  _clear_buttons(self)
+     |  
+     |  _radio_clicked(self, button, sla)
+     |  
+     |  _format_prods(self, prod_certs)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+FUNCTIONS
+    
+    init_controller(backend, consumer, facts)
+    
+    get_controller()
+
+VARIABLES
+    
+    _ = gettext.gettext
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    CONFIRM_SUBS = 0
+    
+    SELECT_SLA = 1
+    
+    _controller = None

@@ -68,7 +68,16 @@ CLASSES
      |  _get_text(self, widget_name)
      |      Return the text value of an input widget referenced by name.
      |  
+     |  _skip_sla_screens(self)
+     |      
+     |      Find the first non rhsm module after the rhsm modules, and move to it.
+     |      
+     |      Assumes that only our modules are grouped together, and that we have
+     |      3.
+     |  
      |  _finish_registration(self, failed=False)
+     |  
+     |  _init_sla(self)
      |  
      |  Inherited methods
      |      object.__delattr__(...)
