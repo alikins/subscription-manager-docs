@@ -40,6 +40,10 @@ CLASSES
      |      Re-display the list of pools last queried, based on current 
      |      filter options.
      |  
+     |  _product_attrs_to_dict(self, productAttributesList)
+     |      Convert the JSON list of product attributes into a dict we can 
+     |      work with more easily.
+     |  
      |  _machine_type(self, pools)
      |  
      |  _create_parent_map(self, title, bg_color)

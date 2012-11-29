@@ -36,6 +36,8 @@ CLASSES
      |  
      |  get_content(self, ent_cert, baseurl, ca_cert)
      |  
+     |  _use_release_for_releasever(self, contenturl)
+     |  
      |  _set_proxy_info(self, repo)
      |  
      |  join(self, base, url)

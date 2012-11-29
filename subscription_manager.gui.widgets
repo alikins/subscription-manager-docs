@@ -141,8 +141,8 @@ CLASSES
      |      pull in as instance variables.
      |  
      |  show(self, name, contract=None, start=None, end=None, account=None, 
-     |       management=None, support_level=None, stacking_id=None, 
-     |       support_type=None, virt_only=None, products=[], highlight=None)
+     |       management=None, support_level='', stacking_id=None, 
+     |       support_type='', virt_only=None, products=[], highlight=None)
      |      Show subscription details.
      |      
      |      Start and end should be formatted strings, not actual date 
@@ -781,7 +781,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (45032112)>
     
     class MultiEntitlementColumn(ToggleTextColumn)
      |  
@@ -925,7 +925,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (45032112)>
     
     class MachineTypeColumn(ToggleTextColumn)
      |  
@@ -1072,7 +1072,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (45032112)>
     
     class QuantitySelectionColumn(gtk.TreeViewColumn)
      |  
@@ -1221,7 +1221,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (45032112)>
 
 FUNCTIONS
     

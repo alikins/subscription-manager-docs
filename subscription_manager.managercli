@@ -366,6 +366,40 @@ CLASSES
      |      subscription_manager.managercli.CliCommand.main(self, args=None)
      |      subscription_manager.managercli.CliCommand.require_connection(self)
     
+    class ReleaseCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  __get_releases(self)
+     |  
+     |  _is_rhel(self, product_tags)
+     |  
+     |  show_current_release(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
     class SubscribeCommand(CliCommand)
      |  
      |  
@@ -642,6 +676,6 @@ VARIABLES
     
     STATUS_MAP = {'expired': 'Expired', 'future_subscribed': 'Future Sub...
     
-    CONSUMED_SUBS_LIST = 'ProductName:          \t%-25s\nContractNumber:...
+    CONSUMED_SUBS_LIST = 'Product Name:         \t%-25s\nContract Number...
     
     __package__ = 'subscription_manager'
