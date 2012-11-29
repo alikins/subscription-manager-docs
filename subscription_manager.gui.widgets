@@ -778,7 +778,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (40162704)>
     
     class MultiEntitlementColumn(ToggleTextColumn)
      |  
@@ -922,7 +922,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (40162704)>
     
     class MachineTypeColumn(ToggleTextColumn)
      |  
@@ -1069,7 +1069,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (40162704)>
     
     class QuantitySelectionColumn(gtk.TreeViewColumn)
      |  
@@ -1218,7 +1218,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19088848)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (40162704)>
 
 FUNCTIONS
     

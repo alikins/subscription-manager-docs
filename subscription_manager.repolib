@@ -15,6 +15,10 @@ CLASSES
      |  
      |  get_repo_file(self)
      |  
+     |  Class methods
+     |      
+     |      delete_repo_file(self)
+     |  
      |  Inherited methods
      |      subscription_manager.certlib.DataLib.update(self)
     
