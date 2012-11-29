@@ -226,6 +226,41 @@ CLASSES
      |      subscription_manager.managercli.CliCommand.main(self, args=None)
      |      subscription_manager.managercli.CliCommand.require_connection(self)
     
+    class ServiceLevelsCommand(UserPassCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  show_service_level(self)
+     |  
+     |  list_service_levels(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.UserPassCommand._get_username_and_password(username, password)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
     class RegisterCommand(UserPassCommand)
      |  
      |  
@@ -583,7 +618,7 @@ FUNCTIONS
     
     handle_exception(msg, ex)
     
-    autosubscribe(cp, consumer)
+    autosubscribe(cp, consumer_uuid, service_level=None)
         This is a wrapper for bind/bindByProduct. Eventually, we will 
         exclusively use bind, but for now, we support both.
     

@@ -64,7 +64,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.glade.XML.__gtype__ = <GType GladeXML (30244048)>
+     |      gtk.glade.XML.__gtype__ = <GType GladeXML (32107728)>
     
     class RegisterScreen
      |  Registration Widget Screen
@@ -189,7 +189,7 @@ VARIABLES
     
     INVALID_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
     
-    LOCKER_ENV_NAME = 'locker'
+    LIBRARY_ENV_NAME = 'library'
     
     cert_file = '/etc/pki/consumer/cert.pem'
     
@@ -205,6 +205,6 @@ VARIABLES
     
     ENVIRONMENT_SELECT_PAGE = 3
     
-    registration_xml = <GladeWrapper object at 0x1d70f00 (PyGladeXML at ...
+    registration_xml = <GladeWrapper object at 0x1f47af0 (PyGladeXML at ...
     
     __package__ = 'subscription_manager.gui'

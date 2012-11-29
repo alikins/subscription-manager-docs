@@ -27,7 +27,7 @@ CLASSES
      |  
      |  Inherited methods
      |      optparse.OptionParser.__init__(self, usage=None, option_list=None, 
-     |          option_class=<class optparse.Option at 0x15f9c50>, 
+     |          option_class=<class optparse.Option at 0x1dd5c50>, 
      |          version=None, conflict_handler='error', description=None, 
      |          formatter=None, add_help_option=True, prog=None, 
      |          epilog=None)

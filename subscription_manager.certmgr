@@ -27,10 +27,6 @@ CLASSES
      |      repolib
      |          The RHSM repository management lib.
 
-FUNCTIONS
-    
-    main(options)
-
 VARIABLES
     
     __package__ = 'subscription_manager'

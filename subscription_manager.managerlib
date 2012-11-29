@@ -376,8 +376,6 @@ FUNCTIONS
     
     formatDate(dt)
     
-    delete_consumer_certs()
-    
     unregister(uep, consumer_uuid)
         Shared logic for un-registration.
     
@@ -386,6 +384,8 @@ FUNCTIONS
         permissions, and fix them if not.
     
     enhance_facts(facts, consumer)
+    
+    clean_all_data(backup=True)
 
 VARIABLES
     
