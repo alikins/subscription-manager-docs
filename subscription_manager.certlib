@@ -102,8 +102,6 @@ CLASSES
      |  
      |  purgeExpired(self, report)
      |  
-     |  mayLinger(self, cert)
-     |  
      |  Inherited methods
      |      subscription_manager.certlib.Action.__init__(self, uep=None)
      |      subscription_manager.certlib.Action.build(self, bundle)

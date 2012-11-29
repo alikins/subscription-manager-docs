@@ -35,8 +35,6 @@ CLASSES
      |  
      |  listValid(self)
      |  
-     |  listExpiredOnDate(self, date)
-     |  
      |  listExpired(self)
      |  
      |  find(self, sn)
@@ -96,7 +94,6 @@ CLASSES
      |      subscription_manager.certdirectory.CertificateDirectory.list(self)
      |      subscription_manager.certdirectory.Directory.listAll(self)
      |      subscription_manager.certdirectory.CertificateDirectory.listExpired(self)
-     |      subscription_manager.certdirectory.CertificateDirectory.listExpiredOnDate(self, date)
      |      subscription_manager.certdirectory.CertificateDirectory.listValid(self)
      |      subscription_manager.certdirectory.Directory.listdirs(self)
      |  
@@ -147,7 +144,6 @@ CLASSES
      |      subscription_manager.certdirectory.CertificateDirectory.list(self)
      |      subscription_manager.certdirectory.Directory.listAll(self)
      |      subscription_manager.certdirectory.CertificateDirectory.listExpired(self)
-     |      subscription_manager.certdirectory.CertificateDirectory.listExpiredOnDate(self, date)
      |      subscription_manager.certdirectory.Directory.listdirs(self)
      |  
      |  Inherited class variables

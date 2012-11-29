@@ -28,6 +28,8 @@ CLASSES
      |      Returns the data for this collection as a dict to be serialized
      |      as JSON.
      |  
+     |  _load_hw_facts(self)
+     |  
      |  _load_custom_facts(self)
      |      Load custom facts from .facts files in /etc/rhsm/facts.
      |  

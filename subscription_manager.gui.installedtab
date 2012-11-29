@@ -64,6 +64,8 @@ VARIABLES
     
     INVALID_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
     
+    ICONSET = {'green': <gtk.gdk.Pixbuf object at 0x1947e60 (GdkPixbuf a...
+    
     PARTIAL = 0
     
     INVALID = 1
