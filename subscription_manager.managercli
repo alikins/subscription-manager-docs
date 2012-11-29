@@ -377,6 +377,8 @@ CLASSES
      |  
      |  _is_rhel(self, product_tags)
      |  
+     |  _get_consumer_release(self)
+     |  
      |  show_current_release(self)
      |  
      |  _do_command(self)

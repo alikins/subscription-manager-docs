@@ -115,6 +115,8 @@ CLASSES
      |  add_product(self, product_name, product_id)
      |      Add a product with the given name and id to the table.
      |  
+     |  set_accessibility_name(self, accessibility_name)
+     |  
      |  _render_icon(self, icon_id)
      |  
      |  _get_icon(self, product_id)

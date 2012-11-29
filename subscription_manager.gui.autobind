@@ -87,6 +87,29 @@ CLASSES
      |      object.__subclasshook__(...)
      |      exceptions.BaseException.__unicode__(...)
     
+    class NoProductsException(exceptions.Exception)
+     |  Exception for AutobindController.load. The system has no products, 
+     |  and thus needs no entitlements.
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__init__(...)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      exceptions.BaseException.__str__(x)
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
     class AutobindController(object)
      |  Class to hold non gui related logic and data for sla 
      |  selection/autobind, so we can share this between firstboot and the 
