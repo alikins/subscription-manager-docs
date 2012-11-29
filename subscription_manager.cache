@@ -1,0 +1,223 @@
+MODULE NAME
+    subscription_manager.cache
+
+DESCRIPTION
+    Module for managing the cached information about a system.
+
+    Classes here track various information last sent to the server, compare
+    this with the current state, and perform an update on the server if 
+    necessary.
+
+
+CLASSES
+    
+    class PackageProfileLib(subscription_manager.certlib.DataLib)
+     |  Another "Lib" object, used by rhsmcertd to update the profile 
+     |  periodically.
+     |  
+     |  
+     |  _do_update(self)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.__init__(self, 
+     |           lock=<subscription_manager.certlib.ActionLock instance at 0x2d4a710>, 
+     |           uep=None)
+     |      subscription_manager.certlib.DataLib.update(self)
+    
+    class InstalledProductsLib(subscription_manager.certlib.DataLib)
+     |  Another "Lib" object, used by rhsmcertd to update the installed 
+     |  products on this system periodically.
+     |  
+     |  
+     |  _do_update(self)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.__init__(self, 
+     |           lock=<subscription_manager.certlib.ActionLock instance at 0x2d4a710>, 
+     |           uep=None)
+     |      subscription_manager.certlib.DataLib.update(self)
+    
+    class CacheManager(object)
+     |  Parent class used for common logic in a number of collections where
+     |  we need to push some consumer JSON up to the server, maintain a 
+     |  local cache of that data, and check if anything has changed on 
+     |  subsequent runs.
+     |  
+     |  
+     |  to_dict(self)
+     |      Returns the data for this collection as a dict to be serialized
+     |      as JSON.
+     |  
+     |  _load_data(self, open_file)
+     |      Load the data in whatever format the sub-class uses from an 
+     |      already opened file descriptor.
+     |  
+     |  _update_server(self, uep, consumer_uuid)
+     |      Update the server with latest data.
+     |      
+     |      This generally completely replaced everything the server had 
+     |      stored previously.
+     |  
+     |  has_changed(self)
+     |      Check if the current system data has changed since the last 
+     |      time we updated.
+     |  
+     |  _cache_exists(self)
+     |  
+     |  write_cache(self)
+     |      Write the current cache to disk. Should only be done after 
+     |      successfully pushing to the server.
+     |      
+     |      The update_check method will call this for you if an update was
+     |      required, but the method is exposed as some system data can be 
+     |      bundled up with the registration request, after which we need 
+     |      to manually write to disk.
+     |  
+     |  _read_cache(self)
+     |      Load the last data we sent to the server. Returns none if no 
+     |      cache file exists.
+     |  
+     |  update_check(self, uep, consumer_uuid, force=False)
+     |      Check if data has changed, and push an update if so.
+     |  
+     |  Class methods
+     |      
+     |      delete_cache(self)
+     |          Delete the cache for this collection from disk.
+     |  
+     |  Class variables
+     |      
+     |      CACHE_FILE = ??-5
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__init__(...)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class ProfileManager(CacheManager)
+     |  Manages the profile of packages installed on this system.
+     |  
+     |  
+     |  __init__(self, current_profile=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _get_current_profile(self)
+     |  
+     |  _set_current_profile(self, value)
+     |  
+     |  to_dict(self)
+     |      Returns the data for this collection as a dict to be serialized
+     |      as JSON.
+     |  
+     |  _load_data(self, open_file)
+     |      Load the data in whatever format the sub-class uses from an 
+     |      already opened file descriptor.
+     |  
+     |  update_check(self, uep, consumer_uuid)
+     |      Check if packages have changed, and push an update if so.
+     |  
+     |  has_changed(self)
+     |      Check if the current system data has changed since the last 
+     |      time we updated.
+     |  
+     |  _update_server(self, uep, consumer_uuid)
+     |      Update the server with latest data.
+     |      
+     |      This generally completely replaced everything the server had 
+     |      stored previously.
+     |  
+     |  Class variables
+     |      
+     |      CACHE_FILE = '/var/lib/rhsm/packages/packages.json'
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.cache.CacheManager._cache_exists(self)
+     |      subscription_manager.cache.CacheManager._read_cache(self)
+     |      subscription_manager.cache.CacheManager.delete_cache(self)
+     |      subscription_manager.cache.CacheManager.write_cache(self)
+    
+    class InstalledProductsManager(CacheManager)
+     |  Manages the cache of the products installed on this system, and 
+     |  what we last sent to the server.
+     |  
+     |  
+     |  __init__(self, product_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  to_dict(self)
+     |      Returns the data for this collection as a dict to be serialized
+     |      as JSON.
+     |  
+     |  _load_data(self, open_file)
+     |      Load the data in whatever format the sub-class uses from an 
+     |      already opened file descriptor.
+     |  
+     |  has_changed(self)
+     |      Check if the current system data has changed since the last 
+     |      time we updated.
+     |  
+     |  format_for_server(self)
+     |      Convert the format we store in this object (which is a little 
+     |      easier to work with) into the format the server expects for the
+     |      consumer.
+     |  
+     |  _update_server(self, uep, consumer_uuid)
+     |      Update the server with latest data.
+     |      
+     |      This generally completely replaced everything the server had 
+     |      stored previously.
+     |  
+     |  Class variables
+     |      
+     |      CACHE_FILE = '/var/lib/rhsm/cache/installed_products.json'
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.cache.CacheManager._cache_exists(self)
+     |      subscription_manager.cache.CacheManager._read_cache(self)
+     |      subscription_manager.cache.CacheManager.delete_cache(self)
+     |      subscription_manager.cache.CacheManager.update_check(self, uep, consumer_uuid, force=False)
+     |      subscription_manager.cache.CacheManager.write_cache(self)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    PACKAGES_RESOURCE = 'packages'
+    
+    __package__ = 'subscription_manager'

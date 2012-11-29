@@ -1,0 +1,31 @@
+MODULE NAME
+    subscription_manager.gui.progress
+
+
+CLASSES
+    
+    class Progress
+     |  
+     |  
+     |  __init__(self, label)
+     |  
+     |  hide(self)
+     |  
+     |  setLabel(self, text)
+     |  
+     |  pulse(self)
+     |      pulse for a glib mainloop timeout callback
+     |  
+     |  setProgress(self, amount, total)
+     |  
+     |  setStatusLabel(self, text)
+     |  
+     |  destroy(self)
+     |  
+     |  set_parent_window(self, window)
+     |  
+     |  _on_delete_event(self, widget, event)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager.gui'

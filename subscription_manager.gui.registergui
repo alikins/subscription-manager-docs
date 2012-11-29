@@ -1,0 +1,210 @@
+MODULE NAME
+    subscription_manager.gui.registergui
+
+
+CLASSES
+    
+    class GladeWrapper(gtk.glade.XML)
+     |  
+     |  
+     |  __init__(self, filename)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  get_widget(self, widget_name)
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      gtk.glade.XML.get_widget_prefix(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      gtk.glade.XML.relative_file(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      gtk.glade.XML.signal_autoconnect(...)
+     |      gtk.glade.XML.signal_connect(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      gtk.glade.XML.__gtype__ = <GType GladeXML (45481344)>
+    
+    class RegisterScreen
+     |  Registration Widget Screen
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts=None, callbacks=None)
+     |      Callbacks will be executed when registration status changes.
+     |  
+     |  show(self)
+     |  
+     |  delete_event(self, event, data=None)
+     |  
+     |  cancel(self, button)
+     |  
+     |  initializeConsumerName(self)
+     |  
+     |  on_register_button_clicked(self, button)
+     |  
+     |  register(self, testing=None)
+     |  
+     |  _timeout_callback(self)
+     |  
+     |  _on_get_owner_list_cb(self, owners, error=None)
+     |  
+     |  _on_get_environment_list_cb(self, result_tuple, error=None)
+     |  
+     |  _owner_selected(self)
+     |  
+     |  _environment_selected(self)
+     |  
+     |  _run_register_step(self, owner, env)
+     |  
+     |  _on_registration_finished_cb(self, new_account, error=None)
+     |  
+     |  _on_bind_by_products_cb(self, error=None)
+     |  
+     |  _on_fetch_certificates_cb(self, error=None)
+     |  
+     |  _finish_registration(self, failed=False)
+     |  
+     |  emit_consumer_signal(self)
+     |  
+     |  close_window(self)
+     |  
+     |  auto_subscribe(self)
+     |  
+     |  validate_consumername(self, consumername)
+     |  
+     |  validate_account(self)
+     |  
+     |  set_parent_window(self, window)
+     |  
+     |  _set_register_details_label(self, details)
+     |  
+     |  _clear_registration_widgets(self)
+     |  
+     |  _show_credentials_page(self)
+    
+    class AsyncBackend(object)
+     |  
+     |  
+     |  __init__(self, backend)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _get_owner_list(self, username, callback)
+     |      method run in the worker thread.
+     |  
+     |  _get_environment_list(self, owner_key, callback)
+     |      method run in the worker thread.
+     |  
+     |  _register_consumer(self, name, facts, owner, env, callback)
+     |      method run in the worker thread.
+     |  
+     |  _bind_by_products(self, uuid, callback)
+     |      method run in the worker thread.
+     |  
+     |  _fetch_certificates(self, callback)
+     |      method run in the worker thread.
+     |  
+     |  _watch_thread(self)
+     |      glib idle method to watch for thread completion. runs the 
+     |      provided callback method in the main thread.
+     |  
+     |  get_owner_list(self, username, callback)
+     |  
+     |  get_environment_list(self, owner_key, callback)
+     |  
+     |  register_consumer(self, name, facts, owner, env, callback)
+     |      Run consumer registration asyncronously
+     |  
+     |  bind_by_products(self, uuid, callback)
+     |  
+     |  fetch_certificates(self, callback)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+FUNCTIONS
+    
+    _(x)
+        rhsm
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    prefix = '/home/adrian/src/subscription-manager/src/subscription_man...
+    
+    VALID_IMG = '/home/adrian/src/subscription-manager/src/subscription_...
+    
+    INVALID_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
+    
+    LOCKER_ENV_NAME = 'locker'
+    
+    cert_file = '/etc/pki/consumer/cert.pem'
+    
+    key_file = '/etc/pki/consumer/key.pem'
+    
+    cfg = config.initConfig()
+    
+    CREDENTIALS_PAGE = 0
+    
+    PROGRESS_PAGE = 1
+    
+    OWNER_SELECT_PAGE = 2
+    
+    ENVIRONMENT_SELECT_PAGE = 3
+    
+    registration_xml = <GladeWrapper object at 0x2bfbd20 (PyGladeXML at ...
+    
+    __package__ = 'subscription_manager.gui'

@@ -1,0 +1,23 @@
+MODULE NAME
+    subscription_manager.validity
+
+
+FUNCTIONS
+    
+    find_first_invalid_date(ent_dir=None, product_dir=None, facts_dict=None)
+        Find the first date when the system is invalid at midnight GMT.
+        
+        WARNING: This method does *not* return the exact first datetime 
+        when we're invalid. Due to it's uses in the GUI it needs to return 
+        a datetime into the first day of being completely invalid, so the 
+        subscription assistant can search for that time and find expired 
+        products.
+        
+        If there are no products installed, return None, as there 
+        technically is no first invalid date.
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

@@ -1,0 +1,192 @@
+MODULE NAME
+    subscription_manager.certlib
+
+
+CLASSES
+    
+    class ActionLock(subscription_manager.lock.Lock)
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  Class variables
+     |      
+     |      PATH = '/var/run/rhsm/cert.pid'
+     |  
+     |  Inherited methods
+     |      subscription_manager.lock.Lock.P(self)
+     |      subscription_manager.lock.Lock.V(self)
+     |      subscription_manager.lock.Lock.__del__(self)
+     |      subscription_manager.lock.Lock.acquire(self)
+     |      subscription_manager.lock.Lock.acquired(self)
+     |      subscription_manager.lock.Lock.release(self)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.lock.Lock.mutex = <_RLock owner=None count=0>
+    
+    class DataLib
+     |  
+     |  
+     |  __init__(self, lock=ActionLock(), uep=None)
+     |  
+     |  update(self)
+     |  
+     |  _do_update(self)
+    
+    class CertLib(DataLib)
+     |  
+     |  
+     |  __init__(self, lock=ActionLock(), uep=None)
+     |  
+     |  delete(self, serialNumbers)
+     |  
+     |  _do_update(self)
+     |  
+     |  _do_delete(self, serialNumbers)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.update(self)
+    
+    class HealingLib(DataLib)
+     |  An object used to run healing nightly. Checks cert validity for 
+     |  today, heals if necessary, then checks for 24 hours from now, so we
+     |  theoretically will never have invalid certificats if subscriptions 
+     |  are available.
+     |  
+     |  
+     |  __init__(self, lock=ActionLock(), uep=None, facts_dict=None)
+     |  
+     |  _do_update(self)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.update(self)
+    
+    class Action
+     |  
+     |  
+     |  __init__(self, uep=None)
+     |  
+     |  build(self, bundle)
+    
+    class DeleteAction(Action)
+     |  
+     |  
+     |  perform(self, serialNumbers)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.Action.__init__(self, uep=None)
+     |      subscription_manager.certlib.Action.build(self, bundle)
+    
+    class UpdateAction(Action)
+     |  
+     |  
+     |  perform(self)
+     |  
+     |  syslogResults(self, report)
+     |  
+     |  getLocal(self, report)
+     |  
+     |  _getConsumerId(self)
+     |  
+     |  getCertificateSerialsList(self)
+     |  
+     |  getExpected(self, report)
+     |  
+     |  bashSerials(self, local, expected, report)
+     |  
+     |  delete(self, rogue, report)
+     |  
+     |  getCertificatesBySerialList(self, snList)
+     |  
+     |  install(self, serials, report)
+     |  
+     |  purgeExpired(self, report)
+     |  
+     |  mayLinger(self, cert)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.Action.__init__(self, uep=None)
+     |      subscription_manager.certlib.Action.build(self, bundle)
+    
+    class Disconnected(exceptions.Exception)
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__init__(...)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      exceptions.BaseException.__str__(x)
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
+    class ConsumerIdentity
+     |  
+     |  
+     |  __init__(self, keystring, certstring)
+     |  
+     |  getConsumerId(self)
+     |  
+     |  getConsumerName(self)
+     |  
+     |  write(self)
+     |  
+     |  delete(self)
+     |  
+     |  __mkdir(self)
+     |  
+     |  __str__(self)
+     |  
+     |  Class methods
+     |      
+     |      keypath(cls)
+     |      
+     |      certpath(cls)
+     |      
+     |      read(cls)
+     |      
+     |      exists(cls)
+     |      
+     |      existsAndValid(cls)
+     |  
+     |  Class variables
+     |      
+     |      PATH = '/etc/pki/consumer'
+     |      
+     |      KEY = 'key.pem'
+     |      
+     |      CERT = 'cert.pem'
+    
+    class UpdateReport
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  updates(self)
+     |  
+     |  write(self, s, title, certificates)
+     |  
+     |  __str__(self)
+
+FUNCTIONS
+    
+    system_log(message, priority=5)
+    
+    main()
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    cfg = initConfig()
+    
+    __package__ = 'subscription_manager'

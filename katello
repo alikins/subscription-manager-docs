@@ -1,0 +1,19 @@
+MODULE NAME
+    katello
+
+
+FUNCTIONS
+    
+    populate_yumvars(conduit, env, org)
+    
+    _init_hook(conduit)
+    
+    init_hook(conduit)
+
+VARIABLES
+    
+    requires_api_version = '2.5'
+    
+    plugin_type = (0, 1)
+    
+    __package__ = None

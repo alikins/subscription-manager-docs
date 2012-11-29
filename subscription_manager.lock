@@ -1,0 +1,53 @@
+MODULE NAME
+    subscription_manager.lock
+
+
+CLASSES
+    
+    class LockFile
+     |  
+     |  
+     |  __init__(self, path)
+     |  
+     |  open(self)
+     |  
+     |  getpid(self)
+     |  
+     |  setpid(self)
+     |  
+     |  mypid(self)
+     |  
+     |  valid(self)
+     |  
+     |  delete(self)
+     |  
+     |  close(self)
+     |  
+     |  notcreated(self)
+     |  
+     |  __del__(self)
+    
+    class Lock
+     |  
+     |  
+     |  __init__(self, path)
+     |  
+     |  acquire(self)
+     |  
+     |  release(self)
+     |  
+     |  acquired(self)
+     |  
+     |  P(self)
+     |  
+     |  V(self)
+     |  
+     |  __del__(self)
+     |  
+     |  Class variables
+     |      
+     |      mutex = <_RLock owner=None count=0>
+
+VARIABLES
+    
+    __package__ = 'subscription_manager'

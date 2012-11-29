@@ -1,0 +1,610 @@
+MODULE NAME
+    subscription_manager.managercli
+
+
+CLASSES
+    
+    class CliCommand(object)
+     |  Base class for all sub-commands.
+     |  
+     |  
+     |  __init__(self, name='cli', usage=None, shortdesc=None, 
+     |           description=None, primary=False, ent_dir=None, 
+     |           prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _request_validity_check(self)
+     |  
+     |  _add_common_options(self)
+     |      Add options that apply to all sub-commands.
+     |  
+     |  _do_command(self)
+     |  
+     |  assert_should_be_registered(self)
+     |  
+     |  require_connection(self)
+     |  
+     |  main(self, args=None)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class UserPassCommand(CliCommand)
+     |  Abstract class for commands that require a username and password
+     |  
+     |  
+     |  __init__(self, name, usage=None, shortdesc=None, description=None, 
+     |           primary=False, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  Static methods
+     |      
+     |      _get_username_and_password(username, password)
+     |          Safely get a username and password from the tty, without 
+     |          echoing. if either username or password are provided as 
+     |          arguments, they will not be prompted for.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._do_command(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class CleanCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _add_common_options(self)
+     |      Add options that apply to all sub-commands.
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class RefreshCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class IdentityCommand(UserPassCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.UserPassCommand._get_username_and_password(username, password)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class OwnersCommand(UserPassCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.UserPassCommand._get_username_and_password(username, password)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class EnvironmentsCommand(UserPassCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.UserPassCommand._get_username_and_password(username, password)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class RegisterCommand(UserPassCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |      Executes the command.
+     |  
+     |  _persist_identity_cert(self, consumer)
+     |      Parses the consumer dict returned from the cert, pulls out the 
+     |      identity certificate, and writes to disk.
+     |  
+     |  _get_environment_id(self, cp, owner_key, environment_name)
+     |  
+     |  _determine_owner_key(self, cp)
+     |      If given an owner in the options, use it. Otherwise ask the 
+     |      server for all the owners this user has access too. If there is
+     |      just one, use it's key. If multiple, return None and let the 
+     |      server error out.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.UserPassCommand._get_username_and_password(username, password)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class UnRegisterCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class RedeemCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |      Executes the command.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class SubscribeCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |      Executes the command.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class UnSubscribeCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |      Executes the command.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class FactsCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class ImportCertCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _add_common_options(self)
+     |      Add options that apply to all sub-commands.
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class ReposCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  require_connection(self)
+     |  
+     |  _add_common_options(self)
+     |      Add options that apply to all sub-commands.
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+    
+    class ConfigCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _add_common_options(self)
+     |      Add options that apply to all sub-commands.
+     |  
+     |  _validate_options(self)
+     |  
+     |  _do_command(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class ListCommand(CliCommand)
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _validate_options(self)
+     |  
+     |  _none_wrap(self, template_str, *args)
+     |  
+     |  _do_command(self)
+     |      Executes the command.
+     |  
+     |  print_consumed(self, ent_dir=None)
+     |  
+     |  _format_name(self, name, indent, max_length)
+     |      Formats a potentially long name for multi-line display, giving 
+     |      it a columned effect.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.managercli.CliCommand._add_common_options(self)
+     |      subscription_manager.managercli.CliCommand._request_validity_check(self)
+     |      subscription_manager.managercli.CliCommand.assert_should_be_registered(self)
+     |      subscription_manager.managercli.CliCommand.main(self, args=None)
+     |      subscription_manager.managercli.CliCommand.require_connection(self)
+    
+    class CLI
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  _add_command(self, cmd)
+     |  
+     |  _usage(self)
+     |  
+     |  _find_best_match(self, args)
+     |      Returns the subcommand class that best matches the subcommand 
+     |      specified in the argument list. For example, if you have two 
+     |      commands that start with auth, 'auth show' and 'auth'. Passing 
+     |      in auth show will match 'auth show' not auth. If there is no 
+     |      'auth show', it tries to find 'auth'.
+     |      
+     |      This function ignores the arguments which begin with --
+     |  
+     |  main(self)
+
+FUNCTIONS
+    
+    handle_exception(msg, ex)
+    
+    autosubscribe(cp, consumer)
+        This is a wrapper for bind/bindByProduct. Eventually, we will 
+        exclusively use bind, but for now, we support both.
+    
+    show_autosubscribe_output()
+    
+    to_unicode_or_bust(obj, encoding='utf-8')
+    
+    systemExit(code, msgs=None)
+        Exit with a code and optional message(s). Saved a few lines of 
+        code.
+    
+    check_registration()
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    cfg = rhsm.config.initConfig()
+    
+    STATUS_MAP = {'expired': 'Expired', 'future_subscribed': 'Future Sub...
+    
+    CONSUMED_SUBS_LIST = 'ProductName:          \t%-25s\nContractNumber:...
+    
+    __package__ = 'subscription_manager'

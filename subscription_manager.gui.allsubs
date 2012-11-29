@@ -1,0 +1,99 @@
+MODULE NAME
+    subscription_manager.gui.allsubs
+
+
+CLASSES
+    
+    class AllSubscriptionsTab(subscription_manager.gui.widgets.SubscriptionManagerTab)
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts, parent_win)
+     |      Creates a new tab widget, given the specified glade file and a 
+     |      list of widget names to extract to instance variables.
+     |  
+     |  get_store(self)
+     |  
+     |  _setup_title_text_renderer(self, column, markup, text_model_idx)
+     |  
+     |  get_type_map(self)
+     |  
+     |  filter_incompatible(self)
+     |      Return True if we're not to include pools which failed a rule 
+     |      check.
+     |  
+     |  filter_overlapping(self)
+     |      Return True if we're not to include pools which provide 
+     |      products for which we already have subscriptions.
+     |  
+     |  filter_uninstalled(self)
+     |      Return True if we're not to include pools for products that are
+     |      not installed.
+     |  
+     |  get_filter_text(self)
+     |      Returns the text to filter subscriptions based on. Will return 
+     |      None if the text box is empty.
+     |  
+     |  clear_pools(self)
+     |      Clear pools list.
+     |  
+     |  display_pools(self)
+     |      Re-display the list of pools last queried, based on current 
+     |      filter options.
+     |  
+     |  _machine_type(self, pools)
+     |  
+     |  _create_parent_map(self, title, bg_color)
+     |  
+     |  get_label(self)
+     |  
+     |  search_button_clicked(self, widget)
+     |      Reload the subscriptions from the server when the Search button
+     |      is clicked.
+     |  
+     |  _update_display(self, data, error)
+     |  
+     |  contain_text_entry_changed(self, widget)
+     |      Redisplay the pools based on the new search string.
+     |  
+     |  filters_changed(self, widget)
+     |      Callback used by several widgets related to filtering, anytime 
+     |      something changes, we re-display based on the latest choices.
+     |  
+     |  _contract_selected(self, pool, quantity=1)
+     |  
+     |  _contract_selection_cancelled(self)
+     |  
+     |  subscribe_button_clicked(self, button)
+     |  
+     |  _selection_callback(self, treeselection)
+     |  
+     |  on_selection(self, selection)
+     |      Shows details for the current selected pool.
+     |  
+     |  on_no_selection(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab._set_next_update(self)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_date_column(self, name, store_key, expand=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_text_column(self, name, store_key, expand=False, markup=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.get_content(self)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.refresh(self)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager.gui'

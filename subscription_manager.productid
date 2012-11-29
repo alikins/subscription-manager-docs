@@ -1,0 +1,76 @@
+MODULE NAME
+    subscription_manager.productid
+
+
+CLASSES
+    
+    class DatabaseDirectory(subscription_manager.certdirectory.Directory)
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  Class variables
+     |      
+     |      PATH = 'var/lib/rhsm'
+     |  
+     |  Inherited methods
+     |      subscription_manager.certdirectory.Directory.__str__(self)
+     |      subscription_manager.certdirectory.Directory.abspath(self, filename)
+     |      subscription_manager.certdirectory.Directory.clean(self)
+     |      subscription_manager.certdirectory.Directory.create(self)
+     |      subscription_manager.certdirectory.Directory.delete(self)
+     |      subscription_manager.certdirectory.Directory.list(self)
+     |      subscription_manager.certdirectory.Directory.listAll(self)
+     |      subscription_manager.certdirectory.Directory.listdirs(self)
+    
+    class ProductDatabase
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  add(self, product, repo)
+     |  
+     |  delete(self, product)
+     |  
+     |  findRepo(self, product)
+     |  
+     |  create(self)
+     |  
+     |  read(self)
+     |  
+     |  write(self)
+     |  
+     |  __fn(self)
+    
+    class ProductManager
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  update(self, yb)
+     |  
+     |  _isWorkstation(self, product)
+     |  
+     |  _isDesktop(self, product)
+     |  
+     |  updateInstalled(self, enabled, active)
+     |  
+     |  updateRemoved(self, active)
+     |  
+     |  getActive(self, yb)
+     |  
+     |  getEnabled(self, yb)
+     |  
+     |  __getCert(self, fn)
+     |  
+     |  Class variables
+     |      
+     |      REPO = 'from_repo'
+     |      
+     |      PRODUCTID = 'productid'
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

@@ -1,0 +1,36 @@
+MODULE NAME
+    subscription_manager.certmgr
+
+
+CLASSES
+    
+    class CertManager
+     |  An object used to update the certficates, yum repos, and facts for 
+     |  the system.
+     |  
+     |  
+     |  __init__(self, lock=ActionLock(), uep=None)
+     |  
+     |  update(self, autoheal=False)
+     |      Update entitlement certificates and corresponding yum 
+     |      repositiories.
+     |      Returns:
+     |          The number of updates required.
+     |      Return type:
+     |          int
+     |  
+     |  Instance variables
+     |      
+     |      certlib
+     |          The RHSM entitlement certificate management lib.
+     |      
+     |      repolib
+     |          The RHSM repository management lib.
+
+FUNCTIONS
+    
+    main(options)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager'

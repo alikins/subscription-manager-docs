@@ -1,0 +1,187 @@
+MODULE NAME
+    subscription_manager.certdirectory
+
+
+CLASSES
+    
+    class Directory
+     |  
+     |  
+     |  __init__(self, path)
+     |  
+     |  listAll(self)
+     |  
+     |  list(self)
+     |  
+     |  listdirs(self)
+     |  
+     |  create(self)
+     |  
+     |  delete(self)
+     |  
+     |  clean(self)
+     |  
+     |  abspath(self, filename)
+     |      Return path for a filename relative to this directory.
+     |  
+     |  __str__(self)
+    
+    class CertificateDirectory(Directory)
+     |  
+     |  
+     |  __init__(self, path)
+     |  
+     |  list(self)
+     |  
+     |  listValid(self)
+     |  
+     |  listExpiredOnDate(self, date)
+     |  
+     |  listExpired(self)
+     |  
+     |  find(self, sn)
+     |  
+     |  findAllByProduct(self, p_hash)
+     |  
+     |  findByProduct(self, p_hash)
+     |  
+     |  certClass(self)
+     |  
+     |  Nested classes
+     |      
+     |      class Factory
+     |       |  
+     |       |  
+     |       |  __init__(self, cls)
+     |       |  
+     |       |  append(self, path, certlist)
+     |  
+     |  Class variables
+     |      
+     |      KEY = 'key.pem'
+     |  
+     |  Inherited methods
+     |      subscription_manager.certdirectory.Directory.__str__(self)
+     |      subscription_manager.certdirectory.Directory.abspath(self, filename)
+     |      subscription_manager.certdirectory.Directory.clean(self)
+     |      subscription_manager.certdirectory.Directory.create(self)
+     |      subscription_manager.certdirectory.Directory.delete(self)
+     |      subscription_manager.certdirectory.Directory.listAll(self)
+     |      subscription_manager.certdirectory.Directory.listdirs(self)
+    
+    class ProductDirectory(CertificateDirectory)
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  certClass(self)
+     |  
+     |  get_provided_tags(self)
+     |      Iterates all product certificates in the directory and extracts
+     |      a master set of all tags they provide.
+     |  
+     |  Class variables
+     |      
+     |      PATH = '/etc/pki/product'
+     |  
+     |  Inherited methods
+     |      subscription_manager.certdirectory.Directory.__str__(self)
+     |      subscription_manager.certdirectory.Directory.abspath(self, filename)
+     |      subscription_manager.certdirectory.Directory.clean(self)
+     |      subscription_manager.certdirectory.Directory.create(self)
+     |      subscription_manager.certdirectory.Directory.delete(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.find(self, sn)
+     |      subscription_manager.certdirectory.CertificateDirectory.findAllByProduct(self, p_hash)
+     |      subscription_manager.certdirectory.CertificateDirectory.findByProduct(self, p_hash)
+     |      subscription_manager.certdirectory.CertificateDirectory.list(self)
+     |      subscription_manager.certdirectory.Directory.listAll(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.listExpired(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.listExpiredOnDate(self, date)
+     |      subscription_manager.certdirectory.CertificateDirectory.listValid(self)
+     |      subscription_manager.certdirectory.Directory.listdirs(self)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.certdirectory.CertificateDirectory.KEY = 'key.pem'
+     |  
+     |  Inherited nested classes
+     |      class subscription_manager.certdirectory.CertificateDirectory.Factory
+    
+    class EntitlementDirectory(CertificateDirectory)
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  certClass(self)
+     |  
+     |  _check_key(self, cert)
+     |      If the new key file (SERIAL-key.pem) does not exist, check for 
+     |      the old style (key.pem), and if found write it out as the new 
+     |      style.
+     |      
+     |      Return false if neither is found, indicating we have no key for
+     |      this certificate.
+     |      
+     |      See bz #711133.
+     |  
+     |  listValid(self)
+     |  
+     |  Class methods
+     |      
+     |      productpath(cls)
+     |  
+     |  Class variables
+     |      
+     |      PATH = '/etc/pki/entitlement'
+     |      
+     |      PRODUCT = 'product'
+     |  
+     |  Inherited methods
+     |      subscription_manager.certdirectory.Directory.__str__(self)
+     |      subscription_manager.certdirectory.Directory.abspath(self, filename)
+     |      subscription_manager.certdirectory.Directory.clean(self)
+     |      subscription_manager.certdirectory.Directory.create(self)
+     |      subscription_manager.certdirectory.Directory.delete(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.find(self, sn)
+     |      subscription_manager.certdirectory.CertificateDirectory.findAllByProduct(self, p_hash)
+     |      subscription_manager.certdirectory.CertificateDirectory.findByProduct(self, p_hash)
+     |      subscription_manager.certdirectory.CertificateDirectory.list(self)
+     |      subscription_manager.certdirectory.Directory.listAll(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.listExpired(self)
+     |      subscription_manager.certdirectory.CertificateDirectory.listExpiredOnDate(self, date)
+     |      subscription_manager.certdirectory.Directory.listdirs(self)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.certdirectory.CertificateDirectory.KEY = 'key.pem'
+     |  
+     |  Inherited nested classes
+     |      class subscription_manager.certdirectory.CertificateDirectory.Factory
+    
+    class Path
+     |  
+     |  Class methods
+     |      
+     |      join(cls, a, b)
+     |      
+     |      abs(cls, path)
+     |          Append the ROOT path to the given path.
+     |      
+     |      isdir(cls, path)
+     |  
+     |  Class variables
+     |      
+     |      ROOT = '/'
+    
+    class Writer
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  write(self, key, cert)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    cfg = initConfig()
+    
+    __package__ = 'subscription_manager'

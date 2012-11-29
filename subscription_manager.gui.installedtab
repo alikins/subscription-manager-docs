@@ -1,0 +1,73 @@
+MODULE NAME
+    subscription_manager.gui.installedtab
+
+
+CLASSES
+    
+    class InstalledProductsTab(subscription_manager.gui.widgets.SubscriptionManagerTab)
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts, tab_icon, parent, 
+     |           ent_dir=None, prod_dir=None)
+     |      Creates a new tab widget, given the specified glade file and a 
+     |      list of widget names to extract to instance variables.
+     |  
+     |  update_products(self)
+     |  
+     |  _render_icon(self, icon_id)
+     |  
+     |  on_selection(self, selection)
+     |  
+     |  on_no_selection(self)
+     |  
+     |  get_type_map(self)
+     |  
+     |  get_label(self)
+     |  
+     |  _set_status_icons(self, status_type)
+     |  
+     |  _set_validity_status(self)
+     |      Updates the entitlement validity status portion of the UI.
+     |  
+     |  set_registered(self, is_registered)
+     |  
+     |  refresh(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab._selection_callback(self, treeselection)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab._set_next_update(self)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_date_column(self, name, store_key, expand=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_text_column(self, name, store_key, expand=False, markup=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.get_content(self)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.get_store(self)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+
+VARIABLES
+    
+    prefix = '/home/adrian/src/subscription-manager/src/subscription_man...
+    
+    VALID_IMG = '/home/adrian/src/subscription-manager/src/subscription_...
+    
+    PARTIAL_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
+    
+    INVALID_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
+    
+    PARTIAL = 0
+    
+    INVALID = 1
+    
+    VALID = 2
+    
+    __package__ = 'subscription_manager.gui'

@@ -1,0 +1,7 @@
+MODULE NAME
+    subscription_manager.gui
+
+
+VARIABLES
+    
+    __package__ = None

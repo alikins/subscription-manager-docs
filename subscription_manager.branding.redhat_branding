@@ -1,0 +1,30 @@
+MODULE NAME
+    subscription_manager.branding.redhat_branding
+
+
+CLASSES
+    
+    class Branding(object)
+     |  
+     |  
+     |  __init__(self)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager.branding'

@@ -1,0 +1,73 @@
+MODULE NAME
+    subscription_manager.facts
+
+
+CLASSES
+    
+    class Facts(subscription_manager.cache.CacheManager)
+     |  Manages the facts for this system, maintains a cache of the most 
+     |  recent set sent to server, and checks for changes.
+     |  
+     |  Includes both those hard coded in the app itself, as well as custom
+     |  facts to be loaded from /etc/rhsm/facts/.
+     |  
+     |  
+     |  __init__(self, ent_dir=None, prod_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  get_last_update(self)
+     |  
+     |  has_changed(self)
+     |      return a dict of any key/values that have changed including new
+     |      keys or deleted keys
+     |  
+     |  get_facts(self)
+     |  
+     |  to_dict(self)
+     |      Returns the data for this collection as a dict to be serialized
+     |      as JSON.
+     |  
+     |  _load_custom_facts(self)
+     |      Load custom facts from .facts files in /etc/rhsm/facts.
+     |  
+     |  _get_validity_facts(self, facts_dict)
+     |  
+     |  _update_server(self, uep, consumer_uuid)
+     |      Update the server with latest data.
+     |      
+     |      This generally completely replaced everything the server had 
+     |      stored previously.
+     |  
+     |  _load_data(self, open_file)
+     |      Load the data in whatever format the sub-class uses from an 
+     |      already opened file descriptor.
+     |  
+     |  Class variables
+     |      
+     |      CACHE_FILE = '/var/lib/rhsm/facts/facts.json'
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.cache.CacheManager._cache_exists(self)
+     |      subscription_manager.cache.CacheManager._read_cache(self)
+     |      subscription_manager.cache.CacheManager.delete_cache(self)
+     |      subscription_manager.cache.CacheManager.update_check(self, uep, consumer_uuid, force=False)
+     |      subscription_manager.cache.CacheManager.write_cache(self)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

@@ -1,0 +1,30 @@
+MODULE NAME
+    subscription_manager.constants
+
+
+FUNCTIONS
+    
+    _(x)
+        rhsm
+
+VARIABLES
+    
+    installed_product_status = 'ProductName:          \t%-25s\nVersion: ...
+    
+    available_subs_list = 'ProductName:          \t%-25s\nProductId:    ...
+    
+    repos_list = 'RepoName:             \t%-25s\nRepoId:               \...
+    
+    product_status = 'ProductName:          \t%-25s\nStatus:            ...
+    
+    environment_list = 'Name:                 \t%-25s\nDescription:     ...
+    
+    UNREGISTER_ERROR = '<b>Errors were encountered during unregister.</b...
+    
+    REGISTER_ERROR = '<b>Unable to register the system.</b>\n%s\nPlease ...
+    
+    CONFIRM_UNREGISTER = '<b>Are you sure you want to unregister?</b>'
+    
+    NO_ORG_ERROR = '<b>User %s is not able to register with any orgs.</b>'
+    
+    __package__ = 'subscription_manager'

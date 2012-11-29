@@ -1,0 +1,11 @@
+MODULE NAME
+    subscription_manager
+
+
+VARIABLES
+    
+    CERT_LOG = '/var/log/rhsm/rhsmcertd.log'
+    
+    CFG = <rhsm.config.RhsmConfigParser object at 0x1372cd0>
+    
+    __package__ = 'subscription_manager'

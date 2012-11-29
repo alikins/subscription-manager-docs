@@ -1,0 +1,24 @@
+MODULE NAME
+    script-subscription_manager_py
+
+
+FUNCTIONS
+    
+    update(conduit)
+        update entitlement certificates
+    
+    warnExpired(conduit)
+        display warning for expired entitlements
+    
+    config_hook(conduit)
+        update
+
+VARIABLES
+    
+    requires_api_version = '2.5'
+    
+    plugin_type = (0, 1)
+    
+    warning = '\n*** WARNING ***\nThe subscription for following product...
+    
+    __package__ = None

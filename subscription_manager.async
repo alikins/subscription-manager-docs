@@ -1,0 +1,40 @@
+MODULE NAME
+    subscription_manager.async
+
+
+CLASSES
+    
+    class AsyncPool(object)
+     |  
+     |  
+     |  __init__(self, pool)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _run_refresh(self, active_on, callback, data)
+     |      method run in the worker thread.
+     |  
+     |  _watch_thread(self)
+     |      glib idle method to watch for thread completion. runs the 
+     |      provided callback method in the main thread.
+     |  
+     |  refresh(self, active_on, callback, data=None)
+     |      Run pool stash refresh asynchronously.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager'

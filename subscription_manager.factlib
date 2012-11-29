@@ -1,0 +1,29 @@
+MODULE NAME
+    subscription_manager.factlib
+
+
+CLASSES
+    
+    class FactLib(subscription_manager.certlib.DataLib)
+     |  Used by CertManager to update a system's facts with the server, 
+     |  used primarily by the cron job but in a couple other places as 
+     |  well.
+     |  
+     |  Makes use of the facts module as well.
+     |  
+     |  
+     |  _do_update(self)
+     |  
+     |  _get_facts(self)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.__init__(self, 
+     |           lock=<subscription_manager.certlib.ActionLock instance at 0x2ae9878>, 
+     |           uep=None)
+     |      subscription_manager.certlib.DataLib.update(self)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

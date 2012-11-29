@@ -1,0 +1,402 @@
+MODULE NAME
+    subscription_manager.managerlib
+
+
+CLASSES
+    
+    class CertificateFetchError(exceptions.Exception)
+     |  
+     |  
+     |  __init__(self, errors)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  errToMsg(self, err)
+     |  
+     |  __str__(self, reason='')
+     |      str(x)
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
+    class PoolFilter(object)
+     |  Helper to filter a list of pools.
+     |  
+     |  
+     |  __init__(self, product_dir=None, entitlement_dir=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  filter_product_ids(self, pools, product_ids)
+     |      Filter a list of pools and return just those that provide 
+     |      products in the requested list of product ids. Both the top 
+     |      level product and all provided products will be checked.
+     |  
+     |  filter_out_uninstalled(self, pools)
+     |      Filter the given list of pools, return only those which provide
+     |      a product installed on this system.
+     |  
+     |  filter_out_installed(self, pools)
+     |      Filter the given list of pools, return only those which do not 
+     |      provide a product installed on this system.
+     |  
+     |  filter_product_name(self, pools, contains_text)
+     |      Filter the given list of pools, removing those whose product 
+     |      name does not contain the given text.
+     |  
+     |  _get_entitled_product_ids(self)
+     |  
+     |  filter_out_overlapping(self, pools)
+     |  
+     |  filter_out_non_overlapping(self, pools)
+     |  
+     |  filter_subscribed_pools(self, pools, subscribed_pool_ids, 
+     |                          compatible_pools)
+     |      Filter the given list of pools, removing those for which the 
+     |      system already has a subscription, unless the pool can be 
+     |      subscribed to again (ie has multi-entitle).
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class MergedPools(object)
+     |  Class to track the view of merged pools for the same product. Used 
+     |  to view total entitlement information across all pools for a 
+     |  particular product.
+     |  
+     |  
+     |  __init__(self, product_id, product_name)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  add_pool(self, pool)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class MergedPoolsStackingGroupSorter(subscription_manager.cert_sorter.StackingGroupSorter)
+     |  Sorts a list of MergedPool objects by stacking_id.
+     |  
+     |  
+     |  __init__(self, merged_pools)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _get_stacking_id(self, merged_pool)
+     |  
+     |  _get_product_name(self, merged_pool)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class PoolStash(object)
+     |  Object used to fetch pools from the server, sort them into 
+     |  compatible, incompatible, and installed lists. Also does filtering 
+     |  based on name.
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  refresh(self, active_on)
+     |      Refresh the list of pools from the server, active on the given 
+     |      date.
+     |  
+     |  _filter_pools(self, incompatible, overlapping, uninstalled, 
+     |                subscribed, text)
+     |      Return a list of pool hashes, filtered according to the given 
+     |      options.
+     |      
+     |      This method does not actually hit the server, filtering is done
+     |      in memory.
+     |  
+     |  merge_pools(self, incompatible=False, overlapping=False, 
+     |              uninstalled=False, subscribed=False, text=None)
+     |      Return a merged view of pools filtered according to the given 
+     |      options. Pools for the same product will be merged into a 
+     |      MergedPool object.
+     |      
+     |      Arguments turn on filters, so setting one to True will reduce 
+     |      the number of results.
+     |  
+     |  lookup_provided_products(self, pool_id)
+     |      Return a list of tuples (product name, product id) for all 
+     |      products provided for a given pool. If we do not actually have 
+     |      any info on this pool, return None.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class ImportFileExtractor(object)
+     |  Responsible for checking an import file and pulling cert and key 
+     |  from it. An import file may include only the certificate, but may 
+     |  also include its key.
+     |  
+     |  An import file is processed looking for:
+     |  
+     |  -----BEGIN <TAG>----- <CONTENT> .. -----END <TAG>-----
+     |  
+     |  and will only process if it finds CERTIFICATE or KEY in the <TAG> 
+     |  text.
+     |  
+     |  For example the following would locate a key and cert.
+     |  
+     |  -----BEGIN CERTIFICATE----- <CERT_CONTENT> -----END 
+     |  CERTIFICATE----- -----BEGIN PUBLIC KEY----- <KEY_CONTENT> -----END 
+     |  PUBLIC KEY-----
+     |  
+     |  
+     |  __init__(self, cert_file_path)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _read(self, file_path)
+     |  
+     |  _process_content(self, content)
+     |  
+     |  contains_key_content(self)
+     |  
+     |  get_key_content(self)
+     |  
+     |  get_cert_content(self)
+     |  
+     |  verify_valid_entitlement(self)
+     |      Verify that a valid entitlement was processed.
+     |      Returns:
+     |          True if valid, False otherwise.
+     |  
+     |  write_to_disk(self)
+     |      Write/copy cert to the entitlement cert dir.
+     |  
+     |  _write_file(self, target_path, content)
+     |  
+     |  _ensure_entitlement_dir_exists(self)
+     |  
+     |  _get_key_path_from_dest_cert_path(self, dest_cert_path)
+     |  
+     |  _create_filename_from_cert_serial_number(self)
+     |  
+     |  Class variables
+     |      
+     |      _REGEX_START_GROUP = 'start'
+     |      
+     |      _REGEX_CONTENT_GROUP = 'content'
+     |      
+     |      _REGEX_END_GROUP = 'end'
+     |      
+     |      _REGEX = '(?P<start>[-]*BEGIN[\\w\\ ]*[-]*)(?P<content>[^-]*...
+     |      
+     |      _PATTERN = re.compile(r'(?P<start>-*BEGIN[\w ]*-*)(?P<conten...
+     |      
+     |      _CERT_DICT_TAG = 'CERTIFICATE'
+     |      
+     |      _KEY_DICT_TAG = 'KEY'
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class ServerTz(datetime.tzinfo)
+     |  tzinfo object for the tz offset of the entitlement server
+     |  
+     |  
+     |  __init__(self, offset)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  utcoffset(self, dt)
+     |      datetime -> minutes east of UTC (negative for west of UTC).
+     |  
+     |  dst(self, dt)
+     |      datetime -> DST offset in minutes east of UTC.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      datetime.tzinfo.__getattribute__(...)
+     |      object.__hash__(x)
+     |      datetime.tzinfo.__new__(T, S, *...)
+     |      datetime.tzinfo.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      datetime.tzinfo.fromutc(...)
+     |      datetime.tzinfo.tzname(...)
+    
+    class LocalTz(datetime.tzinfo)
+     |  tzinfo object representing whatever this systems tz offset is.
+     |  
+     |  
+     |  utcoffset(self, dt)
+     |      datetime -> minutes east of UTC (negative for west of UTC).
+     |  
+     |  dst(self, dt)
+     |      datetime -> DST offset in minutes east of UTC.
+     |  
+     |  tzname(self, dt)
+     |      datetime -> string name of time zone.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      datetime.tzinfo.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__init__(...)
+     |      datetime.tzinfo.__new__(T, S, *...)
+     |      datetime.tzinfo.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      datetime.tzinfo.fromutc(...)
+
+FUNCTIONS
+    
+    system_log(message, priority=5)
+    
+    persist_consumer_cert(consumerinfo)
+        Calls the consumerIdentity, persists and gets consumer info
+    
+    map_status(status)
+    
+    getInstalledProductStatus(product_directory=None, 
+                              entitlement_directory=None, facts=None)
+        Returns the Installed products and their subscription states
+    
+    getInstalledProductHashMap()
+    
+    fetch_certificates(backend)
+    
+    list_pools(uep, consumer_uuid, facts, list_all=False, active_on=None)
+        Wrapper around the UEP call to fetch pools, which forces a facts 
+        update if anything has changed before making the request. This 
+        ensures the rule checks server side will have the most up to date 
+        info about the consumer possible.
+    
+    getAvailableEntitlements(cpserver, consumer_uuid, facts, get_all=False, 
+                             active_on=None)
+        Returns a list of entitlement pools from the server.
+        
+        Facts will be updated if appropriate before making the request, to 
+        ensure the rules on the server will pass if appropriate.
+        
+        The 'all' setting can be used to return all pools, even if the 
+        rules do not pass. (i.e. show pools that are incompatible for your 
+        hardware)
+    
+    merge_pools(pools)
+        Merges the given pools into a data structure representing the 
+        totals for a particular product, across all pools for that product.
+        
+        This provides an overview for a given product, how many total 
+        entitlements you have available and in use across all subscriptions
+        for that product.
+        
+        Returns a dict mapping product ID to MergedPools object.
+    
+    find_date_picker_locale()
+    
+    _sub_dict(datadict, subkeys, default=None)
+    
+    parseDate(date)
+    
+    formatDate(dt)
+    
+    delete_consumer_certs()
+    
+    unregister(uep, consumer_uuid)
+        Shared logic for un-registration.
+    
+    check_identity_cert_perms()
+        Ensure the identity certs on this system have the correct 
+        permissions, and fix them if not.
+    
+    enhance_facts(facts, consumer)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    cfg = initConfig()
+    
+    ENT_CONFIG_DIR = '/etc/pki/entitlement'
+    
+    ID_CERT_PERMS = 416
+    
+    OVERFLOW_DATE = 2145916800.0
+    
+    __package__ = 'subscription_manager'

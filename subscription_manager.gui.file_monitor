@@ -1,0 +1,77 @@
+MODULE NAME
+    subscription_manager.gui.file_monitor
+
+DESCRIPTION
+    Watch for and be notified of changes in a file.
+
+    Perfers to use gio as the backend, but can fallback to polling.
+
+
+CLASSES
+    
+    class Monitor(??.GObject)
+     |  
+     |  
+     |  __init__(self, path)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _check_mtime(self)
+     |  
+     |  _run_check(self)
+     |  
+     |  Class variables
+     |      
+     |      __gsignals__ = {'changed':(gobject.SIGNAL_RUN_LAST, gobject....
+     |      
+     |      __gtype__ = <GType subscription_manager+gui+file_monitor+Mon...
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager.gui'

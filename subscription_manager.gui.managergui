@@ -1,0 +1,157 @@
+MODULE NAME
+    subscription_manager.gui.managergui
+
+
+CLASSES
+    
+    class Backend(object)
+     |  Wrapper for sharing UEP connections to Candlepin.
+     |  
+     |  Reference to a Backend object will be passed around UI components, 
+     |  so the UEP connection it contains can be modified/recreated and all
+     |  components will have the updated connection.
+     |  
+     |  This also serves as a common wrapper for certifcate directories and
+     |  methods to monitor those directories for changes.
+     |  
+     |  
+     |  __init__(self)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  update(self)
+     |  
+     |  create_uep(self, cert_file=None, key_file=None)
+     |  
+     |  _create_uep(self, username=None, password=None, cert_file=None, 
+     |              key_file=None)
+     |  
+     |  is_registered(self)
+     |  
+     |  create_admin_uep(self, username=None, password=None)
+     |  
+     |  monitor_certs(self, callback)
+     |  
+     |  monitor_identity(self, callback)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class Consumer(object)
+     |  Wrapper for sharing consumer identity information throughout GUI 
+     |  components.
+     |  
+     |  
+     |  __init__(self)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  reload(self)
+     |      Check for consumer certificate on disk and update our info 
+     |      accordingly.
+     |  
+     |  getConsumerName(self)
+     |  
+     |  getConsumerId(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class MainWindow(subscription_manager.gui.widgets.GladeWidget)
+     |  The new RHSM main window.
+     |  
+     |  
+     |  __init__(self, backend=None, consumer=None, facts=None, 
+     |           ent_dir=None, prod_dir=None)
+     |      Create a new widget backed by the give glade file (assumed to 
+     |      be in data/). The initial_widget_names is a list of widgets to 
+     |      pull in as instance variables.
+     |  
+     |  registered(self)
+     |  
+     |  registration_changed(self)
+     |  
+     |  refresh(self)
+     |      Refresh the UI.
+     |  
+     |  _get_window(self)
+     |      Return the window containing this widget (might be different 
+     |      for firstboot).
+     |  
+     |  _show_buttons(self)
+     |      Renders the Tools buttons dynamically.
+     |  
+     |  _show_redemption_buttons(self)
+     |  
+     |  _register_button_clicked(self, widget)
+     |  
+     |  _on_unregister_prompt_response(self, dialog, response)
+     |  
+     |  _unregister_button_clicked(self, widget)
+     |  
+     |  _network_config_button_clicked(self, widget)
+     |  
+     |  _facts_button_clicked(self, widget)
+     |  
+     |  _add_sub_button_clicked(self, widget)
+     |  
+     |  _update_certificates_button_clicked(self, widget)
+     |  
+     |  _redeem_button_clicked(self, widget)
+     |  
+     |  _help_button_clicked(self, widget)
+     |  
+     |  _config_changed(self, widget)
+     |  
+     |  _check_rhn_classic(self)
+     |  
+     |  _on_rhn_classic_response(self, dialog, response)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    cert_file = '/etc/pki/consumer/cert.pem'
+    
+    key_file = '/etc/pki/consumer/key.pem'
+    
+    cfg = config.initConfig()
+    
+    __package__ = 'subscription_manager.gui'

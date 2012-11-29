@@ -1,0 +1,115 @@
+MODULE NAME
+    subscription_manager.hwprobe
+
+
+CLASSES
+    
+    class CalledProcessError(exceptions.Exception)
+     |  This exception is raised when a process run by check_call() or 
+     |  check_output() returns a non-zero exit status. The exit status will
+     |  be stored in the returncode attribute; check_output() will also 
+     |  store the output in the output attribute.
+     |  
+     |  
+     |  __init__(self, returncode, cmd, output=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  __str__(self)
+     |      str(x)
+     |  
+     |  Inherited methods
+     |      exceptions.BaseException.__delattr__(...)
+     |      object.__format__(...)
+     |      exceptions.BaseException.__getattribute__(...)
+     |      exceptions.BaseException.__getitem__(x, y)
+     |      exceptions.BaseException.__getslice__(x, i, j)
+     |      object.__hash__(x)
+     |      exceptions.Exception.__new__(T, S, *...)
+     |      exceptions.BaseException.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      exceptions.BaseException.__repr__(x)
+     |      exceptions.BaseException.__setattr__(...)
+     |      exceptions.BaseException.__setstate__(...)
+     |      object.__sizeof__()
+     |      object.__subclasshook__(...)
+     |      exceptions.BaseException.__unicode__(...)
+    
+    class ClassicCheck
+     |  
+     |  
+     |  is_registered_with_classic(self)
+    
+    class DmiInfo(object)
+     |  
+     |  
+     |  __init__(self)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  getDmiInfo(self)
+     |  
+     |  _read_dmi(self, func)
+     |  
+     |  _get_dmi_data(self, func, tag, ddict)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class Hardware
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  getUnameInfo(self)
+     |  
+     |  getReleaseInfo(self)
+     |  
+     |  _open_release(self, filename)
+     |  
+     |  getDistribution(self)
+     |  
+     |  getMemInfo(self)
+     |  
+     |  _getSocketIdForCpu(self, cpu)
+     |  
+     |  getCpuInfo(self)
+     |  
+     |  getLsCpuInfo(self)
+     |  
+     |  getNetworkInfo(self)
+     |  
+     |  getNetworkInterfaces(self)
+     |  
+     |  getVirtInfo(self)
+     |  
+     |  _get_output(self, cmd)
+     |  
+     |  getPlatformSpecificInfo(self)
+     |      Read and parse data that comes from platform specific 
+     |      interfaces. This is only dmi/smbios data for now (which isn't 
+     |      on ppc/s390).
+     |  
+     |  _getVirtUUID(self)
+     |      Given a populated fact list, add on a virt.uuid fact if 
+     |      appropriate. Partially adapted from Spacewalk's rhnreg.py, 
+     |      example hardware reporting found in virt-what tests
+     |  
+     |  getAll(self)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

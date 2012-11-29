@@ -1,0 +1,37 @@
+MODULE NAME
+    subscription_manager.gui.networkConfig
+
+
+CLASSES
+    
+    class NetworkConfigDialog
+     |  This is the dialog that allows setting http proxy settings.
+     |  
+     |  It uses the instant apply paradigm or whatever you wanna call it 
+     |  that the gnome HIG recommends. Whenever a toggle button is flipped 
+     |  or a text entry changed, the new setting will be saved.
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  setInitialValues(self)
+     |  
+     |  writeValues(self, widget=None, dummy=None)
+     |  
+     |  show(self)
+     |  
+     |  close(self, button)
+     |  
+     |  deleted(self, event, data)
+     |  
+     |  enableAction(self, button)
+     |  
+     |  set_parent_window(self, window)
+
+VARIABLES
+    
+    DIR = '/home/adrian/src/subscription-manager/src/subscription_manage...
+    
+    GLADE_XML = '/home/adrian/src/subscription-manager/src/subscription_...
+    
+    __package__ = 'subscription_manager.gui'

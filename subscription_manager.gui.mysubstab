@@ -1,0 +1,80 @@
+MODULE NAME
+    subscription_manager.gui.mysubstab
+
+
+CLASSES
+    
+    class MySubscriptionsTab(subscription_manager.gui.widgets.SubscriptionManagerTab)
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts, parent_win, ent_dir=None, 
+     |           prod_dir=None)
+     |      Create a new 'My Subscriptions' tab.
+     |  
+     |  get_store(self)
+     |  
+     |  _on_unsubscribe_prompt_response(self, dialog, response, selection)
+     |  
+     |  unsubscribe_button_clicked(self, widget)
+     |  
+     |  update_subscriptions(self)
+     |      Pulls the entitlement certificates and updates the subscription
+     |      model.
+     |  
+     |  _add_group(self, group_idx, group)
+     |  
+     |  get_label(self)
+     |  
+     |  get_type_map(self)
+     |  
+     |  on_selection(self, selection)
+     |      Updates the 'Subscription Details' panel with the currently 
+     |      selected subscription.
+     |  
+     |  on_no_selection(self)
+     |      Clears out the subscription details panel when no subscription 
+     |      is selected.
+     |  
+     |  _create_stacking_header_entry(self, title, background_color)
+     |  
+     |  _create_entry_map(self, cert, background_color)
+     |  
+     |  _get_background_color(self, idx, entitlement_cert=None)
+     |  
+     |  _percentage(self, subset, full_set)
+     |  
+     |  _get_installed(self, products)
+     |  
+     |  _update_progress_renderer(self, column, cell_renderer, tree_model, 
+     |                            iter)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab._selection_callback(self, treeselection)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab._set_next_update(self)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_date_column(self, name, store_key, expand=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.add_text_column(self, name, store_key, expand=False, markup=False)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.get_content(self)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+     |      subscription_manager.gui.widgets.SubscriptionManagerTab.refresh(self)
+
+VARIABLES
+    
+    WARNING_DAYS = 42
+    
+    WARNING_COLOR = '#FFFB82'
+    
+    EXPIRED_COLOR = '#FFAF99'
+    
+    __package__ = 'subscription_manager.gui'

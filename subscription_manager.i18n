@@ -1,0 +1,17 @@
+MODULE NAME
+    subscription_manager.i18n
+
+
+FUNCTIONS
+    
+    configure_i18n(with_glade=False)
+        Configure internationalization for the application. Should only be 
+        called once per invocation. (once for CLI, once for GUI)
+
+VARIABLES
+    
+    APP = 'rhsm'
+    
+    DIR = '/usr/share/locale/'
+    
+    __package__ = None

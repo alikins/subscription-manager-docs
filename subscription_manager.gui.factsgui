@@ -1,0 +1,59 @@
+MODULE NAME
+    subscription_manager.gui.factsgui
+
+
+CLASSES
+    
+    class SystemFactsDialog(subscription_manager.gui.widgets.GladeWidget)
+     |  GTK dialog for displaying the current system facts, as well as 
+     |  providing functionality to update the UEP server with the current 
+     |  system facts.
+     |  
+     |  
+     |  __init__(self, backend, consumer, facts)
+     |      Create a new widget backed by the give glade file (assumed to 
+     |      be in data/). The initial_widget_names is a list of widgets to 
+     |      pull in as instance variables.
+     |  
+     |  show(self)
+     |      Make this dialog visible.
+     |  
+     |  hide(self)
+     |      Make this dialog invisible.
+     |  
+     |  display_facts(self)
+     |      Updates the list store with the current system facts.
+     |  
+     |  update_facts(self)
+     |      Sends the current system facts to the UEP server.
+     |  
+     |  _hide_callback(self, button, event=None)
+     |  
+     |  _update_facts_callback(self, button)
+     |  
+     |  _add_column(self, name, order)
+     |      Adds a gtk.TreeViewColumn suitable for displaying text to the 
+     |      facts gtk.TreeView.
+     |  
+     |  set_parent_window(self, window)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager.gui'

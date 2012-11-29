@@ -1,0 +1,208 @@
+MODULE NAME
+    subscription_manager.repolib
+
+
+CLASSES
+    
+    class RepoLib(subscription_manager.certlib.DataLib)
+     |  
+     |  
+     |  __init__(self, lock=ActionLock(), uep=None)
+     |  
+     |  _do_update(self)
+     |  
+     |  get_repos(self)
+     |  
+     |  get_repo_file(self)
+     |  
+     |  Inherited methods
+     |      subscription_manager.certlib.DataLib.update(self)
+    
+    class UpdateAction
+     |  
+     |  
+     |  __init__(self, uep=None, ent_dir=None, prod_dir=None)
+     |  
+     |  perform(self)
+     |  
+     |  get_unique_content(self)
+     |  
+     |  get_key_path(self, ent_cert)
+     |      Returns the full path to the cert's key.pem.
+     |  
+     |  get_content(self, ent_cert, baseurl, ca_cert)
+     |  
+     |  _set_proxy_info(self, repo, cfg)
+     |  
+     |  join(self, base, url)
+    
+    class Repo(dict)
+     |  
+     |  
+     |  __init__(self, repo_id)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |      Return type:
+     |          new empty dictionary
+     |  
+     |  _clean_id(self, repo_id)
+     |      Format the config file id to contain only characters that yum 
+     |      expects (we'll just replace 'bad' chars with -)
+     |  
+     |  items(self)
+     |      Called when we fetch the items for this yum repo to write to 
+     |      disk.
+     |      Return type:
+     |          list of D's (key, value) pairs, as 2-tuples
+     |  
+     |  update(self, new_repo)
+     |      Checks an existing repo definition against a potentially 
+     |      updated version created from most recent entitlement 
+     |      certificates and configuration. Creates, updates, and removes 
+     |      properties as appropriate and returns the number of changes 
+     |      made. (if any)
+     |      Return type:
+     |          None
+     |  
+     |  __str__(self)
+     |      str(x)
+     |  
+     |  __eq__(self, other)
+     |      x==y
+     |  
+     |  __hash__(self)
+     |      hash(x)
+     |  
+     |  Class variables
+     |      
+     |      PROPERTIES = (('name', 0, None), ('baseurl', 0, None), ('ena...
+     |  
+     |  Inherited methods
+     |      dict.__cmp__(x, y)
+     |      dict.__contains__(D, k)
+     |      object.__delattr__(...)
+     |      dict.__delitem__(x, y)
+     |      object.__format__(...)
+     |      dict.__ge__(x, y)
+     |      dict.__getattribute__(...)
+     |      dict.__getitem__(x, y)
+     |      dict.__gt__(x, y)
+     |      dict.__iter__(x)
+     |      dict.__le__(x, y)
+     |      dict.__len__(x)
+     |      dict.__lt__(x, y)
+     |      dict.__ne__(x, y)
+     |      dict.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      dict.__repr__(x)
+     |      object.__setattr__(...)
+     |      dict.__setitem__(x, i, y)
+     |      dict.__sizeof__(D)
+     |      object.__subclasshook__(...)
+     |      dict.clear(D)
+     |      dict.copy(D)
+     |      dict.fromkeys(dict, S, v=...)
+     |      dict.get(D, k, d=...)
+     |      dict.has_key(D, k)
+     |      dict.iteritems(D)
+     |      dict.iterkeys(D)
+     |      dict.itervalues(D)
+     |      dict.keys(D)
+     |      dict.pop(D, k, d=...)
+     |      dict.popitem(D)
+     |      dict.setdefault(D, k, d=...)
+     |      dict.values(D)
+    
+    class TidyWriter
+     |  ini file reader that removes successive newlines, and adds a 
+     |  trailing newline to the end of a file.
+     |  
+     |  used to keep our repo file clean after removals and additions of 
+     |  new sections, as iniparser's tidy function is not available in all 
+     |  versions.
+     |  
+     |  
+     |  __init__(self, backing_file)
+     |  
+     |  write(self, line)
+     |  
+     |  close(self)
+    
+    class RepoFile(iniparse.compat.ConfigParser)
+     |  
+     |  
+     |  __init__(self, name='redhat.repo')
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  read(self)
+     |      Read and parse a filename or a list of filenames.
+     |      
+     |      Files that cannot be opened are silently ignored; this is 
+     |      designed so that you can specify a list of potential 
+     |      configuration file locations (e.g. current directory, user's 
+     |      home directory, systemwide directory), and all existing 
+     |      configuration files in the list will be read.  A single 
+     |      filename may also be given.
+     |  
+     |  write(self)
+     |      Write an .ini-format representation of the configuration state.
+     |  
+     |  add(self, repo)
+     |  
+     |  delete(self, section)
+     |  
+     |  update(self, repo)
+     |  
+     |  section(self, section)
+     |  
+     |  create(self)
+     |  
+     |  Class variables
+     |      
+     |      PATH = 'etc/yum.repos.d/'
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      iniparse.compat.ConfigParser._interpolate(self, section, option, rawval, vars)
+     |      iniparse.compat.RawConfigParser.add_section(self, section)
+     |      iniparse.compat.RawConfigParser.defaults(self)
+     |      iniparse.compat.ConfigParser.get(self, section, option, raw=False, vars=None)
+     |      iniparse.compat.RawConfigParser.getboolean(self, section, option)
+     |      iniparse.compat.RawConfigParser.getfloat(self, section, option)
+     |      iniparse.compat.RawConfigParser.getint(self, section, option)
+     |      iniparse.compat.RawConfigParser.has_option(self, section, option)
+     |      iniparse.compat.RawConfigParser.has_section(self, section)
+     |      iniparse.compat.ConfigParser.items(self, section, raw=False, vars=None)
+     |      iniparse.compat.RawConfigParser.options(self, section)
+     |      iniparse.compat.RawConfigParser.optionxform(self, optionstr)
+     |      iniparse.compat.RawConfigParser.readfp(self, fp, filename=None)
+     |      iniparse.compat.RawConfigParser.remove_option(self, section, option)
+     |      iniparse.compat.RawConfigParser.remove_section(self, section)
+     |      iniparse.compat.RawConfigParser.sections(self)
+     |      iniparse.compat.RawConfigParser.set(self, section, option, value)
+     |  
+     |  Inherited class variables
+     |      iniparse.compat.RawConfigParser._boolean_states = {'0': False, '1': True, 'false': False, 'no': False, ...
+
+FUNCTIONS
+    
+    main()
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager'

@@ -1,0 +1,20 @@
+MODULE NAME
+    script-product_id_py
+
+
+FUNCTIONS
+    
+    chroot()
+        Use /mnt/sysimage when it exists to support operating within an 
+        Anaconda installation.
+    
+    posttrans_hook(conduit)
+        Update product ID certificates.
+
+VARIABLES
+    
+    requires_api_version = '2.6'
+    
+    plugin_type = (0)
+    
+    __package__ = None

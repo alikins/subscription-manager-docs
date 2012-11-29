@@ -1,0 +1,89 @@
+MODULE NAME
+    subscription_manager.branding
+
+DESCRIPTION
+    Overrideable i18n friendly module for branding specific strings. To 
+    override values, drop a python module called <your name>_branding.py 
+    into this directory. The module should contains a Branding class, whose
+    instances have attributes matching the names of those on 
+    DefaultBranding for any values you want to override.
+
+
+CLASSES
+    
+    class Branding(object)
+     |  
+     |  
+     |  __init__(self, custom_branding=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  __getattr__(self, x)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class DefaultBranding(object)
+     |  Default branding. values are defined in init to help with i18n/l10n
+     |  ordering.
+     |  
+     |  
+     |  __init__(self)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class EmptyBranding(object)
+     |  Empty branding object to use in place of a custom branding (so we 
+     |  always fall back to the defaults.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__init__(...)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+FUNCTIONS
+    
+    find_custom_branding()
+    
+    get_branding()
+
+VARIABLES
+    
+    _branding = None
+    
+    __package__ = 'subscription_manager.branding'

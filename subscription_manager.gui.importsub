@@ -1,0 +1,46 @@
+MODULE NAME
+    subscription_manager.gui.importsub
+
+
+CLASSES
+    
+    class ImportSubDialog(subscription_manager.gui.widgets.GladeWidget)
+     |  Dialog to manually import an entitlement certificate for this 
+     |  machine. Generally used for disconnected (unregistered) systems.
+     |  
+     |  
+     |  __init__(self)
+     |      Create a new widget backed by the give glade file (assumed to 
+     |      be in data/). The initial_widget_names is a list of widgets to 
+     |      pull in as instance variables.
+     |  
+     |  _cancel_button_clicked(self, button=None)
+     |  
+     |  show(self)
+     |  
+     |  _delete_event(self, event, data=None)
+     |  
+     |  _import_button_clicked(self, button)
+     |  
+     |  set_parent_window(self, window)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self, names)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    __package__ = 'subscription_manager.gui'

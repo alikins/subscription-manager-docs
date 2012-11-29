@@ -1,0 +1,390 @@
+MODULE NAME
+    subscription_manager.gui.messageWindow
+
+
+CLASSES
+    
+    class MessageWindow(??.GObject)
+     |  
+     |  
+     |  __init__(self, text, parent=None, title=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _on_response_event(self, dialog, response)
+     |  
+     |  hide(self)
+     |  
+     |  noop_hook(self, dummy1=None, dummy2=None)
+     |  
+     |  Class variables
+     |      
+     |      __gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject...
+     |      
+     |      __gtype__ = <GType subscription_manager+gui+messageWindow+Me...
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+    
+    class ErrorDialog(MessageWindow)
+     |  
+     |  Class variables
+     |      
+     |      BUTTONS = <enum GTK_BUTTONS_OK of type GtkButtonsType>
+     |      
+     |      STYLE = <enum GTK_MESSAGE_ERROR of type GtkMessageType>
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      subscription_manager.gui.messageWindow.MessageWindow.__init__(self, text, parent=None, title=None)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow._on_response_event(self, dialog, response)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow.hide(self)
+     |      subscription_manager.gui.messageWindow.MessageWindow.noop_hook(self, dummy1=None, dummy2=None)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject.TYPE_N...
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gtype__ = <GType subscription_manager+gui+messageWindow+Messag...
+    
+    class OkDialog(MessageWindow)
+     |  
+     |  Class variables
+     |      
+     |      BUTTONS = <enum GTK_BUTTONS_OK of type GtkButtonsType>
+     |      
+     |      STYLE = <enum GTK_MESSAGE_INFO of type GtkMessageType>
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      subscription_manager.gui.messageWindow.MessageWindow.__init__(self, text, parent=None, title=None)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow._on_response_event(self, dialog, response)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow.hide(self)
+     |      subscription_manager.gui.messageWindow.MessageWindow.noop_hook(self, dummy1=None, dummy2=None)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject.TYPE_N...
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gtype__ = <GType subscription_manager+gui+messageWindow+Messag...
+    
+    class InfoDialog(MessageWindow)
+     |  
+     |  Class variables
+     |      
+     |      BUTTONS = <enum GTK_BUTTONS_OK of type GtkButtonsType>
+     |      
+     |      STYLE = <enum GTK_MESSAGE_INFO of type GtkMessageType>
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      subscription_manager.gui.messageWindow.MessageWindow.__init__(self, text, parent=None, title=None)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow._on_response_event(self, dialog, response)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow.hide(self)
+     |      subscription_manager.gui.messageWindow.MessageWindow.noop_hook(self, dummy1=None, dummy2=None)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject.TYPE_N...
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gtype__ = <GType subscription_manager+gui+messageWindow+Messag...
+    
+    class YesNoDialog(MessageWindow)
+     |  
+     |  Class variables
+     |      
+     |      BUTTONS = <enum GTK_BUTTONS_YES_NO of type GtkButtonsType>
+     |      
+     |      STYLE = <enum GTK_MESSAGE_QUESTION of type GtkMessageType>
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      subscription_manager.gui.messageWindow.MessageWindow.__init__(self, text, parent=None, title=None)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow._on_response_event(self, dialog, response)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow.hide(self)
+     |      subscription_manager.gui.messageWindow.MessageWindow.noop_hook(self, dummy1=None, dummy2=None)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject.TYPE_N...
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gtype__ = <GType subscription_manager+gui+messageWindow+Messag...
+    
+    class ContinueDialog(MessageWindow)
+     |  
+     |  Class variables
+     |      
+     |      BUTTONS = <enum GTK_BUTTONS_OK_CANCEL of type GtkButtonsType>
+     |      
+     |      STYLE = <enum GTK_MESSAGE_WARNING of type GtkMessageType>
+     |  
+     |  Inherited methods
+     |      ??.GObject.__cmp__(x, y)
+     |      ??.GObject.__copy__(...)
+     |      ??.GObject.__deepcopy__(...)
+     |      ??.GObject.__delattr__(...)
+     |      object.__format__(...)
+     |      ??.GObject.__gdoc__(...)
+     |      object.__getattribute__(...)
+     |      ??.GObject.__gobject_init__(...)
+     |      ??.GObject.__hash__(x)
+     |      subscription_manager.gui.messageWindow.MessageWindow.__init__(self, text, parent=None, title=None)
+     |      ??.GObject.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      ??.GObject.__repr__(x)
+     |      ??.GObject.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow._on_response_event(self, dialog, response)
+     |      ??.GObject.chain(...)
+     |      ??.GObject.connect(...)
+     |      ??.GObject.connect_after(...)
+     |      ??.GObject.connect_object(...)
+     |      ??.GObject.connect_object_after(...)
+     |      ??.GObject.disconnect(...)
+     |      ??.GObject.disconnect_by_func(...)
+     |      ??.GObject.emit(...)
+     |      ??.GObject.emit_stop_by_name(...)
+     |      ??.GObject.freeze_notify(...)
+     |      ??.GObject.get_data(...)
+     |      ??.GObject.get_properties(...)
+     |      ??.GObject.get_property(...)
+     |      ??.GObject.handler_block(...)
+     |      ??.GObject.handler_block_by_func(...)
+     |      ??.GObject.handler_disconnect(...)
+     |      ??.GObject.handler_is_connected(...)
+     |      ??.GObject.handler_unblock(...)
+     |      ??.GObject.handler_unblock_by_func(...)
+     |      subscription_manager.gui.messageWindow.MessageWindow.hide(self)
+     |      subscription_manager.gui.messageWindow.MessageWindow.noop_hook(self, dummy1=None, dummy2=None)
+     |      ??.GObject.notify(...)
+     |      ??.GObject.props(...)
+     |      ??.GObject.set_data(...)
+     |      ??.GObject.set_properties(...)
+     |      ??.GObject.set_property(...)
+     |      ??.GObject.stop_emission(...)
+     |      ??.GObject.thaw_notify(...)
+     |      ??.GObject.weak_ref(...)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gsignals__ = {'response':(gobject.SIGNAL_RUN_LAST, gobject.TYPE_N...
+     |      subscription_manager.gui.messageWindow.MessageWindow.__gtype__ = <GType subscription_manager+gui+messageWindow+Messag...
+
+FUNCTIONS
+    
+    wrap_line(line, max_line_size=100)
+    
+    wrap_text(txt)
+
+VARIABLES
+    
+    __package__ = 'subscription_manager.gui'

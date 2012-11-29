@@ -1,0 +1,115 @@
+MODULE NAME
+    rhsm_login
+
+
+CLASSES
+    
+    class moduleClass(firstboot.module.Module, subscription_manager.gui.registergui.RegisterScreen)
+     |  
+     |  
+     |  __init__(self)
+     |      Create a new firstboot Module for the 'register' screen.
+     |  
+     |  _read_rhn_proxy_settings(self)
+     |  
+     |  apply(self, interface, testing=False)
+     |      'Next' button has been clicked - try to register with the 
+     |      provided user credentials and return the appropriate result 
+     |      value.
+     |  
+     |  close_window(self)
+     |      Overridden from RegisterScreen - we want to bypass the default 
+     |      behavior of hiding the GTK window.
+     |  
+     |  emit_consumer_signal(self)
+     |      Overriden from RegisterScreen - we don't care about consumer 
+     |      update signals.
+     |  
+     |  registrationTokenScreen(self)
+     |      Overridden from RegisterScreen - ignore any requests to show 
+     |      the registration screen on this particular page.
+     |  
+     |  createScreen(self)
+     |      Create a new instance of gtk.VBox, pulling in child widgets 
+     |      from the glade file.
+     |  
+     |  initializeUI(self)
+     |      Synchronize the state of the UI with whatever's present on disk
+     |      or wherever else the module looks for its default values.  This
+     |      method will be called immediately before the module is 
+     |      displayed, both when moving forwards and backwards through the 
+     |      module list. It should be designed to be called multiple times.
+     |      This method must be provided by all subclasses.
+     |  
+     |  needsNetwork(self)
+     |      This lets firstboot know that networking is required, in order 
+     |      to talk to hosted UEP.
+     |  
+     |  focus(self)
+     |      Focus the initial UI element on the page, in this case the 
+     |      login name field.
+     |  
+     |  shouldAppear(self)
+     |      Indicates to firstboot whether to show this screen.  In this 
+     |      case we want to skip over this screen if there is already an 
+     |      identity certificate on the machine (most likely laid down in a
+     |      kickstart).
+     |  
+     |  _destroy_widget(self, widget_name)
+     |      Destroy a widget by name.
+     |      
+     |      See gtk.Widget.destroy()
+     |  
+     |  _get_credentials_hash(self)
+     |      Return an internal hash representation of the text input 
+     |      widgets.  This is used to compare if we have changed anything 
+     |      when moving back and forth across modules.
+     |  
+     |  _get_text(self, widget_name)
+     |      Return the text value of an input widget referenced by name.
+     |  
+     |  _finish_registration(self, failed=False)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+     |      subscription_manager.gui.registergui.RegisterScreen._clear_registration_widgets(self)
+     |      subscription_manager.gui.registergui.RegisterScreen._delete_event(self, event, data=None)
+     |      subscription_manager.gui.widgets.GladeWidget._get_widget_names(self)
+     |      subscription_manager.gui.registergui.RegisterScreen._on_register_button_clicked(self, button)
+     |      subscription_manager.gui.registergui.RegisterScreen._run_pre(self, screen)
+     |      subscription_manager.gui.registergui.RegisterScreen._set_navigation_sensitive(self, sensitive)
+     |      subscription_manager.gui.registergui.RegisterScreen._set_register_details_label(self, details)
+     |      subscription_manager.gui.registergui.RegisterScreen._set_register_label(self, screen)
+     |      subscription_manager.gui.registergui.RegisterScreen._set_screen(self, screen)
+     |      subscription_manager.gui.registergui.RegisterScreen._timeout_callback(self)
+     |      subscription_manager.gui.registergui.RegisterScreen.cancel(self, button)
+     |      subscription_manager.gui.registergui.RegisterScreen.finish_registration(self, failed=False)
+     |      firstboot.module.Module.needsReboot(self)
+     |      subscription_manager.gui.registergui.RegisterScreen.pre_done(self, next_screen)
+     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self)
+     |      subscription_manager.gui.registergui.RegisterScreen.register(self)
+     |      firstboot.module.Module.renderModule(self, interface)
+     |      subscription_manager.gui.registergui.RegisterScreen.show(self)
+     |  
+     |  Inherited class variables
+     |      subscription_manager.gui.registergui.RegisterScreen.widget_names = ['register_dialog', 'register_notebook', 'register_p...
+
+FUNCTIONS
+    
+    _(x)
+        rhsm
+
+VARIABLES
+    
+    __package__ = None

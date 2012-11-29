@@ -1,0 +1,165 @@
+MODULE NAME
+    subscription_manager.cert_sorter
+
+
+CLASSES
+    
+    class CertSorter(object)
+     |  Class used to sort all certificates in the given Entitlement and 
+     |  Product directories into status for a particular date.
+     |  
+     |  Certs will be sorted into: installed, entitled, installed + 
+     |  entitled, installed + unentitled, expired. When looking for the 
+     |  products we need, only installed products will be considered. (i.e.
+     |  we do not concern ourselves with products that are entitled but not
+     |  installed)
+     |  
+     |  The date can be used to examine the state this system will likely 
+     |  be in at some point in the future.
+     |  
+     |  
+     |  __init__(self, product_dir, entitlement_dir, facts_dict, 
+     |           on_date=None)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  is_valid(self)
+     |      Return true if the results of this cert sort indicate our 
+     |      entitlements are completely valid.
+     |  
+     |  get_status(self, product_id)
+     |      Return the status of a given product
+     |  
+     |  get_begin_date(self, product_hash)
+     |  
+     |  get_end_date(self, product_hash)
+     |  
+     |  get_entitlements_for_product(self, product_hash)
+     |  
+     |  _populate_installed_products(self)
+     |      Build the dict of all installed products.
+     |  
+     |  _scan_entitlement_certs(self)
+     |      Main method used to scan all entitlement certs on the machine, 
+     |      and sort them into the appropriate lists.
+     |      
+     |      Iterates all entitlement certs once, plus an single additional 
+     |      pass for each unique stack ID found.
+     |  
+     |  _stack_id_valid(self, stack_id, ent_certs)
+     |      Returns True if the given stack ID is valid.
+     |      
+     |      Assumes that the certificate is valid on the date we're sorting
+     |      for. Future and expired certs are filtered out before this is 
+     |      called.
+     |  
+     |  _add_products_to_hash(self, ent_cert, product_dict)
+     |      Adds any installed product IDs provided by the entitlement cert
+     |      to the given dict. Maps product ID to entitlement certificate.
+     |  
+     |  _scan_for_unentitled_products(self)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class StackingGroupSorter(object)
+     |  
+     |  
+     |  __init__(self, entitlements)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _get_stacking_id(self, entitlement)
+     |  
+     |  _get_product_name(self, entitlement)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class EntitlementGroup(object)
+     |  
+     |  
+     |  __init__(self, entitlement, name='')
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  add_entitlement_cert(self, entitlement)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+    
+    class EntitlementCertStackingGroupSorter(StackingGroupSorter)
+     |  
+     |  
+     |  __init__(self, certs)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  _get_stacking_id(self, cert)
+     |  
+     |  _get_product_name(self, cert)
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
+VARIABLES
+    
+    log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    FUTURE_SUBSCRIBED = 'future_subscribed'
+    
+    SUBSCRIBED = 'subscribed'
+    
+    NOT_SUBSCRIBED = 'not_subscribed'
+    
+    EXPIRED = 'expired'
+    
+    PARTIALLY_SUBSCRIBED = 'partially_subscribed'
+    
+    SOCKET_FACT = 'cpu.cpu_socket(s)'
+    
+    __package__ = 'subscription_manager'
