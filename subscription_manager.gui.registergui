@@ -139,6 +139,6 @@ VARIABLES
     
     ENVIRONMENT_SELECT_PAGE = 3
     
-    registration_xml = <GladeWrapper object at 0x3025b90 (PyGladeXML at ...
+    registration_xml = <GladeWrapper object at 0x1b78b40 (PyGladeXML at ...
     
     __package__ = 'subscription_manager.gui'

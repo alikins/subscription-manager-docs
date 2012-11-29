@@ -373,10 +373,6 @@ CLASSES
      |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
      |      signature
      |  
-     |  __get_releases(self)
-     |  
-     |  _is_rhel(self, product_tags)
-     |  
      |  _get_consumer_release(self)
      |  
      |  show_current_release(self)

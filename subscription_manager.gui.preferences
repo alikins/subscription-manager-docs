@@ -18,9 +18,15 @@ CLASSES
      |  
      |  load_current_settings(self)
      |  
+     |  load_servicelevel(self, consumer_json)
+     |  
+     |  load_releases(self, consumer_json)
+     |  
      |  _close_button_clicked(self, widget)
      |  
      |  _sla_changed(self, combobox)
+     |  
+     |  _release_changed(self, combobox)
      |  
      |  show(self)
      |  
@@ -44,6 +50,6 @@ VARIABLES
     
     DIR = '/home/adrian/src/subscription-manager/src/subscription_manage...
     
-    GLADE_XML = <gtk.glade.XML object at 0x1c07280 (PyGladeXML at 0x1ad2...
+    GLADE_XML = <gtk.glade.XML object at 0x184f050 (PyGladeXML at 0x17a4...
     
     __package__ = 'subscription_manager.gui'
