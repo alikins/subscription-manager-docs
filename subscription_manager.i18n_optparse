@@ -11,6 +11,32 @@ DESCRIPTION
 
 CLASSES
     
+    class WrappedIndentedHelpFormatter(optparse.IndentedHelpFormatter)
+     |  
+     |  
+     |  __init__(self, indent_increment=2, max_help_position=24, width=None, 
+     |           short_first=1)
+     |  
+     |  format_option(self, option)
+     |  
+     |  Inherited methods
+     |      optparse.HelpFormatter._format_text(self, text)
+     |      optparse.HelpFormatter.dedent(self)
+     |      optparse.HelpFormatter.expand_default(self, option)
+     |      optparse.HelpFormatter.format_description(self, description)
+     |      optparse.HelpFormatter.format_epilog(self, epilog)
+     |      optparse.IndentedHelpFormatter.format_heading(self, heading)
+     |      optparse.HelpFormatter.format_option_strings(self, option)
+     |      optparse.IndentedHelpFormatter.format_usage(self, usage)
+     |      optparse.HelpFormatter.indent(self)
+     |      optparse.HelpFormatter.set_long_opt_delimiter(self, delim)
+     |      optparse.HelpFormatter.set_parser(self, parser)
+     |      optparse.HelpFormatter.set_short_opt_delimiter(self, delim)
+     |      optparse.HelpFormatter.store_option_strings(self, parser)
+     |  
+     |  Inherited class variables
+     |      optparse.HelpFormatter.NO_DEFAULT_VALUE = 'none'
+    
     class OptionParser(optparse.OptionParser)
      |  
      |  
@@ -27,7 +53,7 @@ CLASSES
      |  
      |  Inherited methods
      |      optparse.OptionParser.__init__(self, usage=None, option_list=None, 
-     |          option_class=<class optparse.Option at 0x28bdc50>, 
+     |          option_class=<class optparse.Option at 0x25b3c50>, 
      |          version=None, conflict_handler='error', description=None, 
      |          formatter=None, add_help_option=True, prog=None, 
      |          epilog=None)

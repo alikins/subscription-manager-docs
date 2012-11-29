@@ -204,6 +204,8 @@ CLASSES
      |  
      |  _validate_options(self)
      |  
+     |  _get_enviornments(self, org)
+     |  
      |  _do_command(self)
      |  
      |  Inherited methods
@@ -673,6 +675,8 @@ VARIABLES
     cfg = rhsm.config.initConfig()
     
     NOT_REGISTERED = 'This system is not yet registered. Try \'subscript...
+    
+    LIBRARY_ENV_NAME = 'library'
     
     STATUS_MAP = {'expired': 'Expired', 'future_subscribed': 'Future Sub...
     

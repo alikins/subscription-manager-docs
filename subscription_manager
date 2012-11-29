@@ -6,6 +6,6 @@ VARIABLES
     
     CERT_LOG = '/var/log/rhsm/rhsmcertd.log'
     
-    CFG = <rhsm.config.RhsmConfigParser object at 0x29c1cd0>
+    CFG = <rhsm.config.RhsmConfigParser object at 0x263ccd0>
     
     __package__ = 'subscription_manager'

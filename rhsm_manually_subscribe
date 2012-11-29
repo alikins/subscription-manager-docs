@@ -1,5 +1,5 @@
 MODULE NAME
-    rhsm_confirm_subs
+    rhsm_manually_subscribe
 
 
 CLASSES
@@ -64,8 +64,12 @@ CLASSES
      |                   changes to disk.
      |  
      |  createScreen(self)
-     |      Create a new instance of gtk.VBox, pulling in child widgets 
-     |      from the glade file.
+     |      Create a new instance of gtk.VBox, the UI elements required for
+     |      this module, and pack them into self.vbox.  Do not take any 
+     |      action to initialize the UI elements or write anything to disk.
+     |      This method does not return any value, and is the first method 
+     |      called on a module after it is loaded.  This method must be 
+     |      provided by all subclasses.
      |  
      |  initializeUI(self)
      |      Synchronize the state of the UI with whatever's present on disk
@@ -76,8 +80,11 @@ CLASSES
      |      This method must be provided by all subclasses.
      |  
      |  needsNetwork(self)
-     |      This lets firstboot know that networking is required, in order 
-     |      to talk to hosted UEP.
+     |      Does this module require the network to be active in order to 
+     |      run? By default, no modules need networking.  If the module 
+     |      requires networking which is not available, the module will not
+     |      be presented. Modules that require networking should override 
+     |      this method.
      |  
      |  shouldAppear(self)
      |      Indicates to firstboot whether to show this screen.  In this 
@@ -85,18 +92,18 @@ CLASSES
      |      identity certificate on the machine (most likely laid down in a
      |      kickstart).
      |  
+     |  _skip_sla_screens(self, interface)
+     |      
+     |      Find the first non rhsm module after the rhsm modules, and move to it.
+     |      
+     |      Assumes that only our modules are grouped together, and that we have
+     |      4.
+     |  
      |  Inherited methods
      |      firstboot.module.Module.focus(self)
      |      firstboot.module.Module.needsReboot(self)
      |      firstboot.module.Module.renderModule(self, interface)
 
-FUNCTIONS
-    
-    _(x)
-        rhsm
-
 VARIABLES
     
-    log = logging.getLogger('rhsm-app.'+ __name__)
-    
-    __package__ = None
+    _ = lambda x:

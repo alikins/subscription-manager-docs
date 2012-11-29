@@ -1,0 +1,20 @@
+MODULE NAME
+    subscription_manager.gui.manually_subscribe
+
+
+CLASSES
+    
+    class ManuallySubscribeScreen(subscription_manager.gui.widgets.GladeWidget)
+     |  
+     |  
+     |  __init__(self)
+     |  
+     |  set_title(self, title)
+
+FUNCTIONS
+    
+    get_screen()
+
+VARIABLES
+    
+    _screen = None

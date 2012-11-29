@@ -68,57 +68,16 @@ CLASSES
      |  _get_text(self, widget_name)
      |      Return the text value of an input widget referenced by name.
      |  
-     |  _skip_sla_screens(self)
-     |      
-     |      Find the first non rhsm module after the rhsm modules, and move to it.
-     |      
-     |      Assumes that only our modules are grouped together, and that we have
-     |      3.
-     |  
      |  _finish_registration(self, failed=False)
+     |  
+     |  _move_to_manual_install(self, title)
      |  
      |  _init_sla(self)
      |  
      |  Inherited methods
-     |      object.__delattr__(...)
-     |      object.__format__(...)
-     |      object.__getattribute__(...)
-     |      object.__hash__(x)
-     |      object.__new__(T, S, *...)
-     |      object.__reduce__(...)
-     |      object.__reduce_ex__(...)
-     |      object.__repr__(x)
-     |      object.__setattr__(...)
-     |      object.__sizeof__()
-     |      object.__str__(x)
-     |      object.__subclasshook__(...)
-     |      subscription_manager.gui.registergui.RegisterScreen._clear_registration_widgets(self)
-     |      subscription_manager.gui.registergui.RegisterScreen._delete_event(self, event, data=None)
-     |      subscription_manager.gui.widgets.GladeWidget._get_widget_names(self)
-     |      subscription_manager.gui.registergui.RegisterScreen._on_register_button_clicked(self, button)
-     |      subscription_manager.gui.registergui.RegisterScreen._run_pre(self, screen)
-     |      subscription_manager.gui.registergui.RegisterScreen._set_navigation_sensitive(self, sensitive)
-     |      subscription_manager.gui.registergui.RegisterScreen._set_register_details_label(self, details)
-     |      subscription_manager.gui.registergui.RegisterScreen._set_register_label(self, screen)
-     |      subscription_manager.gui.registergui.RegisterScreen._set_screen(self, screen)
-     |      subscription_manager.gui.registergui.RegisterScreen._timeout_callback(self)
-     |      subscription_manager.gui.registergui.RegisterScreen.cancel(self, button)
-     |      subscription_manager.gui.registergui.RegisterScreen.finish_registration(self, failed=False)
      |      firstboot.module.Module.needsReboot(self)
-     |      subscription_manager.gui.registergui.RegisterScreen.pre_done(self, next_screen)
-     |      subscription_manager.gui.widgets.GladeWidget.pull_widgets(self)
-     |      subscription_manager.gui.registergui.RegisterScreen.register(self)
      |      firstboot.module.Module.renderModule(self, interface)
-     |      subscription_manager.gui.registergui.RegisterScreen.show(self)
-     |  
-     |  Inherited class variables
-     |      subscription_manager.gui.registergui.RegisterScreen.widget_names = ['register_dialog', 'register_notebook', 'register_p...
-
-FUNCTIONS
-    
-    _(x)
-        rhsm
 
 VARIABLES
     
-    __package__ = None
+    _ = lambda x:

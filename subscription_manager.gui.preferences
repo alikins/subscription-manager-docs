@@ -30,6 +30,10 @@ CLASSES
      |  
      |  show(self)
      |  
+     |  _close_dialog(self)
+     |  
+     |  _dialog_deleted(self, event, data)
+     |  
      |  Inherited methods
      |      object.__delattr__(...)
      |      object.__format__(...)
@@ -50,6 +54,6 @@ VARIABLES
     
     DIR = '/home/adrian/src/subscription-manager/src/subscription_manage...
     
-    GLADE_XML = <gtk.glade.XML object at 0x184f050 (PyGladeXML at 0x17a4...
+    GLADE_XML = <gtk.glade.XML object at 0x13cf0f0 (PyGladeXML at 0x1321...
     
     __package__ = 'subscription_manager.gui'

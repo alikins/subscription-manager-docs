@@ -16,6 +16,8 @@ CLASSES
      |  
      |  _is_rhel(self, product_tags)
      |  
+     |  _is_correct_rhel(self, product_tags, content_tags)
+     |  
      |  Inherited methods
      |      object.__delattr__(...)
      |      object.__format__(...)
