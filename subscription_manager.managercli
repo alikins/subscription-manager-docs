@@ -226,7 +226,7 @@ CLASSES
      |      subscription_manager.managercli.CliCommand.main(self, args=None)
      |      subscription_manager.managercli.CliCommand.require_connection(self)
     
-    class ServiceLevelsCommand(UserPassCommand)
+    class ServiceLevelCommand(UserPassCommand)
      |  
      |  
      |  __init__(self, ent_dir=None, prod_dir=None)
@@ -637,6 +637,8 @@ VARIABLES
     log = logging.getLogger('rhsm-app.'+ __name__)
     
     cfg = rhsm.config.initConfig()
+    
+    NOT_REGISTERED = 'This system is not yet registered. Try \'subscript...
     
     STATUS_MAP = {'expired': 'Expired', 'future_subscribed': 'Future Sub...
     

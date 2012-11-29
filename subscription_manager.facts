@@ -22,7 +22,9 @@ CLASSES
      |      return a dict of any key/values that have changed including new
      |      keys or deleted keys
      |  
-     |  get_facts(self)
+     |  get_facts(self, refresh=False)
+     |  
+     |  refresh_validity_facts(self)
      |  
      |  to_dict(self)
      |      Returns the data for this collection as a dict to be serialized

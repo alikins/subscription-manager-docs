@@ -267,11 +267,14 @@ CLASSES
      |      Initialize the DatePicker. date is a python datetime.date 
      |      object.
      |  
-     |  _date_entry_validate(self, widget, dummy)
-     |      validate the date, pop up a box and then re-focus on date if 
-     |      not valid
+     |  date_entry_validate(self)
+     |      validate the date and pop up a box if not valid
+     |  
+     |  _date_validate(self, date_str)
      |  
      |  _date_entry_box_grab_focus(self, dummy2=None, dummy3=None)
+     |  
+     |  _date_str_to_date(self, date_str)
      |  
      |  _date_update_cal(self, dummy=None)
      |  
@@ -778,7 +781,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19150032)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
     
     class MultiEntitlementColumn(ToggleTextColumn)
      |  
@@ -922,7 +925,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19150032)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
     
     class MachineTypeColumn(ToggleTextColumn)
      |  
@@ -1069,7 +1072,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19150032)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
     
     class QuantitySelectionColumn(gtk.TreeViewColumn)
      |  
@@ -1218,7 +1221,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (19150032)>
+     |      gtk.TreeViewColumn.__gtype__ = <GType GtkTreeViewColumn (22655664)>
 
 FUNCTIONS
     
