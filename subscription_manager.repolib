@@ -36,7 +36,7 @@ CLASSES
      |  
      |  get_content(self, ent_cert, baseurl, ca_cert)
      |  
-     |  _set_proxy_info(self, repo, cfg)
+     |  _set_proxy_info(self, repo)
      |  
      |  join(self, base, url)
     
@@ -140,6 +140,8 @@ CLASSES
      |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
      |      signature
      |  
+     |  exists(self)
+     |  
      |  read(self)
      |      Read and parse a filename or a list of filenames.
      |      
@@ -208,5 +210,7 @@ FUNCTIONS
 VARIABLES
     
     log = logging.getLogger('rhsm-app.'+ __name__)
+    
+    CFG = initConfig()
     
     __package__ = 'subscription_manager'

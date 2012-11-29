@@ -2,6 +2,72 @@ MODULE NAME
     subscription_manager.validity
 
 
+CLASSES
+    
+    class ValidProductDateRangeCalculator(object)
+     |  
+     |  
+     |  __init__(self, certsorter)
+     |      x.__init__(...) initializes x; see x.__class__.__doc__ for 
+     |      signature
+     |  
+     |  calculate(self, product_hash)
+     |      Calculate the valid date range for the specified product based 
+     |      on today's date.
+     |      
+     |      Partially entitled products are considered when determining the
+     |      valid range.
+     |      
+     |      NOTE: The returned date range will be in GMT, so keep this in 
+     |      mind when presenting these dates to the user.
+     |  
+     |  _sort_past_to_future(self, entitlements)
+     |      Sorts the specified entitlements by start date from past to 
+     |      future.
+     |  
+     |  _compare_by_start_date(self, ent1, ent2)
+     |      Compare entitlements by start dates.
+     |  
+     |  _get_entitlements_spanning_now(self, entitlements)
+     |      From the specified entitlements, find the ones that make up a 
+     |      complete continuous span across today. Entitlements completely 
+     |      in the past/future will be included only if entitlements exist 
+     |      who's start or end dates overlap and a joined span reaches 
+     |      today.
+     |  
+     |  _is_entitlement_covered_by_group(self, to_check, group)
+     |      Given a group of entitlements, check if the specified 
+     |      entitlement is completely covered by another entitlement, with 
+     |      no gaps.
+     |  
+     |  _gap_exists_between(self, ent1, ent2)
+     |      Determines id there is a gap in time between two entitlements.
+     |  
+     |  _entitlement_valid_on_date(self, entitlement, entitlements_to_check, 
+     |                             date)
+     |      Given a list of entitlements, check if the specified 
+     |      entitlement is valid on the specified date.
+     |      
+     |      NOTE: If an entitlement is not stackable, it is considered 
+     |      valid if its range contains the specified date. If the 
+     |      entitlement is stackable, it is considered valid if its stack 
+     |      is valid, or there is a non-stackable entitlement who's span 
+     |      includes the specified date.
+     |  
+     |  Inherited methods
+     |      object.__delattr__(...)
+     |      object.__format__(...)
+     |      object.__getattribute__(...)
+     |      object.__hash__(x)
+     |      object.__new__(T, S, *...)
+     |      object.__reduce__(...)
+     |      object.__reduce_ex__(...)
+     |      object.__repr__(x)
+     |      object.__setattr__(...)
+     |      object.__sizeof__()
+     |      object.__str__(x)
+     |      object.__subclasshook__(...)
+
 FUNCTIONS
     
     find_first_invalid_date(ent_dir=None, product_dir=None, facts_dict=None)

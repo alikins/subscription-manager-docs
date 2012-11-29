@@ -12,6 +12,17 @@ CLASSES
      |      Creates a new tab widget, given the specified glade file and a 
      |      list of widget names to extract to instance variables.
      |  
+     |  _calc_subs_providing(self, product_id, compliant_range)
+     |      Calculates the relevant contract IDs and subscription names 
+     |      which are providing an installed product during the dates we 
+     |      are covered. If an entitlement is outside the date range it is 
+     |      excluded.
+     |      
+     |      Duplicate contract IDs and subscription names will be filtered.
+     |      
+     |      Return value is a tuple, a contract IDs set and a subscription 
+     |      names set.
+     |  
      |  update_products(self)
      |  
      |  _render_icon(self, icon_id)
@@ -64,7 +75,7 @@ VARIABLES
     
     INVALID_IMG = '/home/adrian/src/subscription-manager/src/subscriptio...
     
-    ICONSET = {'green': <gtk.gdk.Pixbuf object at 0x1870f00 (GdkPixbuf a...
+    ICONSET = {'green': <gtk.gdk.Pixbuf object at 0x2529c80 (GdkPixbuf a...
     
     PARTIAL = 0
     

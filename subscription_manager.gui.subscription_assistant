@@ -461,7 +461,7 @@ CLASSES
      |      gtk.TreeView.widget_to_tree_coords(...)
      |  
      |  Inherited class variables
-     |      gtk.TreeView.__gtype__ = <GType GtkTreeView (47910512)>
+     |      gtk.TreeView.__gtype__ = <GType GtkTreeView (48688704)>
     
     class SubscriptionAssistant(subscription_manager.gui.widgets.GladeWidget)
      |  Subscription Assistant GUI window.

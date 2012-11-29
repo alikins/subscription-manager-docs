@@ -30,10 +30,6 @@ CLASSES
      |  get_status(self, product_id)
      |      Return the status of a given product
      |  
-     |  get_begin_date(self, product_hash)
-     |  
-     |  get_end_date(self, product_hash)
-     |  
      |  get_entitlements_for_product(self, product_hash)
      |  
      |  _populate_installed_products(self)
@@ -46,12 +42,19 @@ CLASSES
      |      Iterates all entitlement certs once, plus an single additional 
      |      pass for each unique stack ID found.
      |  
-     |  _stack_id_valid(self, stack_id, ent_certs)
+     |  stack_id_valid(self, stack_id, ent_certs, on_date=None)
      |      Returns True if the given stack ID is valid.
      |      
      |      Assumes that the certificate is valid on the date we're sorting
      |      for. Future and expired certs are filtered out before this is 
      |      called.
+     |  
+     |  ent_cert_sockets_valid(self, ent, on_date=None)
+     |      Returns True if the given entitlement covers enough sockets for
+     |      this system.
+     |      
+     |      If the entitlement has no socket restriction, True will always 
+     |      be returned.
      |  
      |  _add_products_to_hash(self, ent_cert, product_dict)
      |      Adds any installed product IDs provided by the entitlement cert

@@ -64,7 +64,7 @@ CLASSES
      |      ??.GObject.weak_ref(...)
      |  
      |  Inherited class variables
-     |      gtk.glade.XML.__gtype__ = <GType GladeXML (38686448)>
+     |      gtk.glade.XML.__gtype__ = <GType GladeXML (30244048)>
     
     class RegisterScreen
      |  Registration Widget Screen
@@ -205,6 +205,6 @@ VARIABLES
     
     ENVIRONMENT_SELECT_PAGE = 3
     
-    registration_xml = <GladeWrapper object at 0x2584cd0 (PyGladeXML at ...
+    registration_xml = <GladeWrapper object at 0x1d70f00 (PyGladeXML at ...
     
     __package__ = 'subscription_manager.gui'
